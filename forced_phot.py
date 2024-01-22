@@ -50,7 +50,7 @@ def gaussian(t,mu,amp=1.,sigma=10.):
     gauss = np.exp(-(np.square(t-mu)/(2*sigma**2)))
     return gauss/np.sum(gauss)
 
-def chi2_peak_finder(flux,flux_err,time,normalized=False):
+def chi2_peak_finder(flux,flux_err,time,time_zeropoint,normalized=False):
     """Finds an estimate of TDE peak using naive least chi-square fitting of a gaussian of ~20 days width
        for the purposes of fitting a rise-decay function later.
 
@@ -63,14 +63,18 @@ def chi2_peak_finder(flux,flux_err,time,normalized=False):
     Returns:
        tuple: Tuple of the chi2 results per the chi2 function above and the index at which these values reaches a minimum.
     """
+    latest_peak =  2459783.499988 #jd of 31-07-2022 23:59:59.000
+    latest_peak -= time_zeropoint
+
     flux = np.copy(flux)
     flux_err = np.copy(flux_err)
-    chi2_results = np.zeros(flux.shape)
+    chi2_results = np.full(flux.shape,np.nan)
     if not normalized:
         flux /= np.max(flux)
         flux_err /= np.max(flux)
     for i,t in enumerate(time):
         # fit = gaussian(flux,mu)
-        chi2_results[i] = chi2(flux,flux_err,gaussian(time,amp=1,mu=t))
-    peak = np.argmin(chi2_results)
+        if t<= latest_peak:
+            chi2_results[i] = chi2(flux,flux_err,gaussian(time,amp=1,mu=t))
+    peak = np.nanargmin(chi2_results)
     return chi2_results, peak
