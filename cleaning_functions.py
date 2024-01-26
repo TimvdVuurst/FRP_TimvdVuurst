@@ -1,3 +1,10 @@
+'''
+List of cleaning functions that I can just import throughout my FRP since I'll need them often.
+Last update: 18/12/2023
+Tim van der Vuurst, Bsc (Leiden University)
+'''
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import sjoert.stellar
@@ -6,7 +13,7 @@ import os
 from tqdm import tqdm
 from astropy import coordinates as coord
 import json
-from numpyencoder import NumpyEncoder
+from numpyencoder import NumpyEncoder #by Hunter M. Allen (https://pypi.org/project/numpyencoder/)
 
 
 #From Sjoert, slightly modified
@@ -122,6 +129,7 @@ def flux_unc_val(ZTF,output=False):
 #             else:
 #                 print(clean_data)
 #                 print(20*'--')
+          
 
 def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
     """Cleans ZTF batch request data using the qcuts function. The removed data is neatly logged on a per filter - per field basis. The cleaning
@@ -144,16 +152,11 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
         verbose (bool, optional): Controls the (amount of) print statements in the function. Defaults to False.
     """
     #Read in the raw data from the data path as a Pandas DataFrame. 
-    columns = ['sindex', 'field', 'ccdid', 'qid', 'filter', 'pid', 'infobitssci', 'sciinpseeing', 'scibckgnd', 'scisigpix',
-                'zpmaginpsci', 'zpmaginpsciunc', 'zpmaginpscirms', 'clrcoeff', 'clrcoeffunc', 'ncalmatches', 'exptime',
-                'adpctdif1', 'adpctdif2', 'diffmaglim', 'zpdiff', 'programid', 'jd', 'rfid', 'forcediffimflux', 'forcediffimfluxunc',
-                'forcediffimsnr', 'forcediffimchisq', 'forcediffimfluxap', 'forcediffimfluxuncap', 'forcediffimsnrap', 'aperturecorr',
-                'dnearestrefsrc', 'nearestrefmag', 'nearestrefmagunc', 'nearestrefchi', 'nearestrefsharp', 'refjdstart', 'refjdend',
-                'procstatus']
+    columns = ['sindex', 'field', 'ccdid', 'qid', 'filter', 'pid', 'infobitssci', 'sciinpseeing', 'scibckgnd', 'scisigpix', 'zpmaginpsci', 'zpmaginpsciunc', 'zpmaginpscirms', 'clrcoeff', 'clrcoeffunc', 'ncalmatches', 'exptime', 'adpctdif1', 'adpctdif2', 'diffmaglim', 'zpdiff', 'programid', 'jd', 'rfid', 'forcediffimflux', 'forcediffimfluxunc', 'forcediffimsnr', 'forcediffimchisq', 'forcediffimfluxap', 'forcediffimfluxuncap', 'forcediffimsnrap', 'aperturecorr', 'dnearestrefsrc', 'nearestrefmag', 'nearestrefmagunc', 'nearestrefchi', 'nearestrefsharp', 'refjdstart', 'refjdend', 'procstatus']
     dtypes = [(columns[x],float) for x in range(len(columns))]
     dtypes[4] = ('filter',r'U8')
     data = pd.DataFrame(np.genfromtxt(datapath,skip_header=53,dtype=dtypes))
-
+ 
     clean_data_full = pd.DataFrame() #an empty frame on which the data from every filter will be vertically stacked.
     iok = q_cuts(data) #very first quality check, mask array of good data points.
     data_ok = data[iok]
@@ -162,9 +165,8 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
     filters = np.unique(data['filter'])
     filtermasks = [data['filter'] == f for f in filters]
     # fields,field_counts = np.unique(data['field'],return_counts=True) #return_counts for picking the primary field
-    fields,field_counts = np.unique(data_ok['field'],return_counts=True) #Do we want the primary field on data or on data_ok?
+    fields,_ = np.unique(data_ok['field'],return_counts=True) #Do we want the primary field on data or on data_ok?
     fieldmasks = [data['field'] == fid for fid in fields]
-    primary_field = [i == np.max(field_counts) for i in field_counts] #should be this one if primary field is for the whole data
 
     if iok.sum() == 0: #this might occur, this prevents an error
         print(f"{ZTF_ID}: no viable data found in the batch request. Proceeding to next file.")
@@ -181,10 +183,10 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
                 logdict[filter]["no_viable_data"] = 1
                 continue
 
-            ##IF we take the primary field on a per filter basis use three lines below.
-            # data_ok_filter = data[iok_filter]
-            # filter_field_counts = [np.sum(data_ok_filter['field'] == fid) for fid in fields] #count for each field we know to have in the uncleaned data how often it appears in this filter. Might yield 0's! 
-            # primary_field = [c == np.max(filter_field_counts) for c in filter_field_counts] #should be this one if we want to pick the primary on a per filter basis
+            #If we take the primary field on a per filter basis use three lines below.
+            data_ok_filter = data[iok_filter]
+            filter_field_counts = [np.sum(data_ok_filter['field'] == fid) for fid in fields] #count for each field we know to have in the uncleaned data how often it appears in this filter. Might yield 0's! 
+            primary_field = [c == np.max(filter_field_counts) for c in filter_field_counts] #should be this one if we want to pick the primary on a per filter basis
 
             for j,fid in enumerate(fields):
                 field_mask = fieldmasks[j]
@@ -227,8 +229,6 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
             print()
             print(logdict)
                     
-
-
 
 sjoertpath = r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Data\Sjoert_Flares'
 sjoertflares = pd.read_csv(r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Data\ZTF_neoWISE_flares_acflares.dat',delimiter=' ')
