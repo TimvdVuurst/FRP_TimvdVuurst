@@ -231,7 +231,7 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
                     
 
 sjoertpath = r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Data\Sjoert_Flares'
-sjoertflares = pd.read_csv(r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Data\ZTF_neoWISE_flares_acflares.dat',delimiter=' ')
+sjoertflares = pd.read_csv(r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Data\dump\ZTF_neoWISE_flares_acflares.dat',delimiter=' ')
 catalog_coords = coord.SkyCoord(np.array(sjoertflares['ra']),np.array(sjoertflares['dec']),unit='deg')
 
 def get_year_sjoertflares(file,catalog_coords=catalog_coords):
