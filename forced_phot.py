@@ -72,16 +72,16 @@ def chi2_peak_finder(flux,flux_err,time,time_zeropoint):
     latest_peak =  2459783.499988 #jd of 31-07-2022 23:59:59.000
     latest_peak -= time_zeropoint
 
-    timesteps_for_gauss = np.arange(np.min(time),latest_peak,step=5) #key array that deduces the times which will become candidates
+    timesteps_for_gauss = np.arange(np.min(time[1:]),latest_peak,step=5) #key array that deduces the times which will become candidates
 
-    flux = np.copy(flux)
-    flux_err = np.copy(flux_err)
+    flux_norm = np.copy(flux) / np.max(flux)
+    flux_err_norm = np.copy(flux_err) / np.max(flux)
     chi2_results = np.full(timesteps_for_gauss.shape,np.nan)
 
     for i,t in enumerate(timesteps_for_gauss):
         # fit = gaussian(flux,mu)
         if t < latest_peak:
-            chi2_results[i] = chi2(flux,flux_err,gaussian(time,amp=1,mu=t))
+            chi2_results[i] = chi2(flux_norm,flux_err_norm,gaussian(time,amp=1,mu=t))
     peak = np.nanargmin(chi2_results) #ignore the nans, find the least chi2
 
     #finding the flux of the closest corresponding time in the actual data as the corresponding flux to the peak guess
