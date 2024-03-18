@@ -3,10 +3,13 @@ import sjoert.stellar
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
+from scipy.optimize import curve_fit
+import json
+from scipy.constants import h,c,k
 
 '''
 List of functions that I can just import throughout my FRP since I'll need them often.
-Last update: 26/01/2024
+Last update: 15/03/2024
 Tim van der Vuurst, Bsc (Leiden University)
 '''
 
@@ -63,14 +66,22 @@ def chi2_peak_finder(flux,flux_err,time,time_zeropoint):
     Args:
         flux (array): Flux data.
         flux_err (array): Error corresponding to flux data.
-        time (array): Time data corersponding to flux data.
+        time (array): Time data corersponding to flux data. Assumes this has already been transformed to mjd given the time zeropoint.
         normalized (bool): If False, the data was not normalized and the function does this for you. Otherwise, the data isn't touched.
 
     Returns:
        tuple: Tuple of the chi2 results per the chi2 function above and the index at which these values reaches a minimum.
     """
-    latest_peak =  2459783.499988 #jd of 31-07-2022 23:59:59.000
+    latest_peak =  2459945.49999  #jd of 31-12-2022 23:59:59.000
+    # latest_peak =  2459783.499988  #jd of 31-07-2022 23:59:59.000
+    # latest_peak =  2460157.49999  #jd of 31-07-2023 23:59:59.000
+
+    #transform to mjd
     latest_peak -= time_zeropoint
+    #it may be the case we don't have nearly data beyond the latest peak, in which case we take the latest datapoint as the latest peak
+
+    if latest_peak > np.max(time):
+        latest_peak = np.max(time)
 
     timesteps_for_gauss = np.arange(np.min(time[1:]),latest_peak,step=5) #key array that deduces the times which will become candidates
 
@@ -92,6 +103,42 @@ def chi2_peak_finder(flux,flux_err,time,time_zeropoint):
     return chi2_results, peak, timesteps_for_gauss[peak], best_flux
 
 
+def cross_correlation(flux,time,time_zeropoint=2458484.5,full_output=True):
+    latest_peak =  2459945.49999  #jd of 31-12-2022 23:59:59.000
+    latest_peak -= time_zeropoint #in mjd
+
+    #it may be the case we don't have data beyond the latest peak, 
+    #in which case we take the latest datapoint as the latest peak
+    if latest_peak > np.max(time):
+        latest_peak = np.max(time)
+
+    timesteps_for_gauss = np.arange(np.min(time[1:]),latest_peak,step=5) #key array that deduces the times which will become candidates
+    cross_corr = np.zeros_like(timesteps_for_gauss)
+
+    #interpolate the data at the timesteps we use so that the arrays have the same shape.
+    interp_data = np.interp(timesteps_for_gauss,time,flux)
+
+    for i,t in enumerate(timesteps_for_gauss):
+        #we evaluate the gaussian at the defined timesteps and use the interpolated data to compare to. This usually reduces 
+        #runtime greatly compared to evaluating the gaussian at all times in "time" and using the actual flux data
+        #and gives comparable results.
+        cross_corr[i] = np.dot(gaussian(timesteps_for_gauss,amp=1,mu=t),interp_data)
+    
+    #best fit is the highest cross correlation
+    peak = np.argmax(cross_corr)
+
+    #finding the flux of the closest corresponding time in the actual data as the corresponding flux to the peak guess
+    best_time_insteps = timesteps_for_gauss[peak]
+    best_fit_arg = np.argmin(np.abs(time - best_time_insteps))
+    best_flux = flux[best_fit_arg]
+
+    if full_output:
+        return cross_corr, peak, timesteps_for_gauss, best_flux
+    return peak,timesteps_for_gauss[peak],best_flux
+
+
+
+##NEEDS UPDATING
 def preprocess_clean_data(datapath):
     """Preprocess a cleaned json file given its path. The full clean data will be read in. A mask that can filter out all
        ZTF_i measurements is created. Flux measurements and its errors are converted to uJy and the DataFrame is appended to only retain this
@@ -122,78 +169,420 @@ def preprocess_clean_data(datapath):
     return data, ztf_name, no_i_mask, time_zeropoint
 
 
+class ZTF_forced_phot:
+    def __init__(self,ztf_dir,ztf_name=None): 
+        """Class: ZTF_forced_phot. Given a directory and optionally a name (if the name is not the end of the directory), perform forced photometry
+        on the object. Both a plot of the raw and clean data together as well as a plot with fits to the data may be generated. After fitting the 
+        subsequent parameters may be saved to a json file as well. Saving happens in the specified directory. The __init__() function loads in the 
+        data and does some necessary preprocessing.
+        The class runs on pandas to create dataframes, both for oversight in the code and ease in calling columns. This is of course not necessary
+        and the code may be relatively easy rewritten to contain only NumPy arrays.
+
+        Args:
+            ztf_dir (str): Path to the directory where the clean data, raw data and log file of the ZTF data is stored.
+            ztf_name (str, optional): Name of the ZTF we are investigating here. Preferably, the data directory of each object is named after
+            the object itself and thus the ZTF identifier may be taken from the ztf_dir argument. If this is not the case, use this argument.
+            Defaults to None.
+        """
+        if ztf_name == None:
+            ztf_name = os.path.split(ztf_dir)[-1]
 
 
+        #gather the log and check if there even is any viable g and r data.
+        #if there is not, turn on a flag to prevent errors later on and write the 
+        #case to a txt file in the parent directory.
+        with open(os.path.join(ztf_dir,f"{ztf_name}_clean_log.json")) as f:
+            logfile = json.load(f)
 
-#Works best if it's in a class, otherwise we'll have redefine/re-initialize things like ztf_name and time_zeropoint all the time.
+        self.no_gr_flag = False
+        if logfile['ZTF_g']['no_viable_data'] or logfile['ZTF_r']['no_viable_data']:
+            parent_dir = os.path.split(ztf_dir)[0]
+            with open(os.path.join(parent_dir,'no_viable_g_or_r.txt'),'a+') as no_gr_file:
+                no_gr_file.seek(0)
+                lines = no_gr_file.readlines()
+                if ztf_name+'\n' not in lines:
+                    no_gr_file.write(ztf_name+'\n')
+            
+            self.no_gr_flag = True
+            print(f'No viable g or r data in {ztf_name}. Skipping this instance.')
+            return 
 
-# def plot_clean_unclean_data(clean_data,unclean_data):
-#     unclean_data = unclean_data[unclean_data['forcediffimfluxunc'] > 0]
-#     clean_flux, clean_err, clean_time = clean_data[['flux','flux_unc','time']].T.to_numpy(dtype=np.float64)
-#     raw_flux, raw_err, raw_time = unclean_data[['forcediffimflux','forcediffimfluxunc','jd']].T.to_numpy(dtype=np.float64)
-#     raw_flux = sjoert.stellar.mag2flux(unclean_data['zpdiff']) * 1e6 * raw_flux
-#     raw_err = sjoert.stellar.mag2flux(unclean_data['zpdiff']) * 1e6 * raw_err
-#     raw_flux,raw_err,raw_time = raw_flux,raw_err,raw_time
 
-#     clean_filtermasks = [(clean_data['filter'] == 'ZTF_g'), (clean_data['filter'] == 'ZTF_r'), (clean_data['filter'] == 'ZTF_i')]
-#     raw_filtersmasks = [(unclean_data['filter'] == 'ZTF_g'), (unclean_data['filter'] == 'ZTF_r'), (unclean_data['filter'] == 'ZTF_i')]
-#     colors = ['green','red','brown']
-#     names = ['ZTF_g','ZTF_r','ZTF_i']
+        clean_data = pd.read_csv(os.path.join(ztf_dir,f"{ztf_name}_clean_data.txt"),
+                                 sep='\t',comment='#',
+                                 names=['time','flux','flux_unc','zeropoint','filter'])
+        clean_data.sort_values('time',inplace=True) #sort the data by time for plotting reasons later on
+        no_i_mask = clean_data['filter'] != 'ZTF_i' #create the ZTf_i mask to filter out ZTF-i-band data.
+        flux,err = flux_jy(clean_data) #convert the flux and its errors to uJY
+        err = np.clip(err,0.01*flux,np.inf) # clip the errors to be at least 1% of the flux
+        clean_data['flux'] = flux.values #overwrite with new data
+        clean_data['flux_unc'] = err.values 
 
-#     fig,axes = plt.subplots(nrows=3,sharex=True,figsize=(6,8))
-#     plt.suptitle(ztf_name,fontsize=14)
-#     axes[0].xaxis.set_tick_params(which='both', labelbottom=True)
-#     axes[1].xaxis.set_tick_params(which='both', labelbottom=True)
-#     for i,ax in enumerate(axes):
-#         ax.set_title(names[i])
-#         ax.errorbar(raw_time[raw_filtersmasks[i]],raw_flux[raw_filtersmasks[i]],raw_err[raw_filtersmasks[i]],fmt=',',alpha=0.5,c='gray',label='Raw data')
-#         ax.errorbar(clean_time[clean_filtermasks[i]],clean_flux[clean_filtermasks[i]],clean_err[clean_filtermasks[i]],fmt=',',c=colors[i],label='Cleaned data')
-#         ax.legend(loc='lower right')
-#         ax.set_ylabel(r'Flux [$\mu$Jy]',fontsize=12)
+        #create numpy arrays for ease and efficiency
+        flux, err, time = clean_data[['flux','flux_unc','time']].T.to_numpy(dtype=np.float64)
+
+        time_zeropoint = 2458484.5 #JD of 01-01-2019 @ 00:00:00.000
+        #transform time column
+        time_mjd = clean_data['time'] - time_zeropoint
+        clean_data['time'] = time_mjd.values 
+
+        columns = ['sindex', 'field', 'ccdid', 'qid', 'filter', 'pid', 'infobitssci', 'sciinpseeing', 'scibckgnd', 'scisigpix', 'zpmaginpsci', 'zpmaginpsciunc', 'zpmaginpscirms', 'clrcoeff', 'clrcoeffunc', 'ncalmatches', 'exptime', 'adpctdif1', 'adpctdif2', 'diffmaglim', 'zpdiff', 'programid', 'jd', 'rfid', 'forcediffimflux', 'forcediffimfluxunc', 'forcediffimsnr', 'forcediffimchisq', 'forcediffimfluxap', 'forcediffimfluxuncap', 'forcediffimsnrap', 'aperturecorr', 'dnearestrefsrc', 'nearestrefmag', 'nearestrefmagunc', 'nearestrefchi', 'nearestrefsharp', 'refjdstart', 'refjdend', 'procstatus']
+        dtypes = [(columns[x],float) for x in range(len(columns))]
+        dtypes[4] = ('filter',r'U8')
+        for file in os.listdir(ztf_dir):
+            if 'batchfp' in file:
+                batchrq_string = file
+        unclean_data = pd.DataFrame(np.genfromtxt(os.path.join(ztf_dir,batchrq_string),skip_header=53,dtype=dtypes))
+        unclean_data = unclean_data[unclean_data['forcediffimfluxunc'] > 0] #these need to be removed or plotting doesn't work, usually not a lot of datapoints.
+
+
+        #Source: http://svo2.cab.inta-csic.es/theory/fps/index.php?mode=browse&gname=Palomar&gname2=ZTF&asttype=
+        g_center = c/ (4746.48 * 1e-10)
+        r_center = c / (6366.38 * 1e-10)
+        i_center = c / (7867.41 * 1e-10)
+
+        self.clean_filtermasks = [(clean_data['filter'] == 'ZTF_g'), (clean_data['filter'] == 'ZTF_r'), (clean_data['filter'] == 'ZTF_i')]
+
+        chi2_results, peak_ind, t_0_guess, peak_guess = chi2_peak_finder(flux,err,clean_data['time'],time_zeropoint)
+        time_mask_pure = (clean_data['time'] > (t_0_guess - 365)) & (clean_data['time'] < (t_0_guess+365*2)) #these are the times we will be fitting on
+        time_mask = time_mask_pure * no_i_mask # also filter out ZTF_i measurements
+
+        #values for fitting
+        flux_fit,err_fit,time_fit,filters_fit = flux[time_mask],err[time_mask],clean_data['time'][time_mask].to_numpy(),clean_data['filter'][time_mask].to_numpy()
+
+        #frequency array and "central" frequency for blackbody ratio correction
+        nu_1 = [g_center if f == 'ZTF_g' else r_center for f in filters_fit]
+        nu_1 = np.array(nu_1).astype(np.float64)
+        nu_0 = np.average([g_center,r_center],weights=[np.sum(filters_fit=='ZTF_g'),np.sum(filters_fit=='ZTF_r')])
+
+        #Initial guesses and boundings for fitting in order: Fp, peak_pos, sigma, tau_dec, F0, T
+        #There are seperate initial guesses for g and r only fitting, namely in the baseline
+        guesses = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,0,4]
+        guesses_g = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,np.median(flux[np.invert(time_mask) & self.clean_filtermasks[0]]),4]
+        guesses_r = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,np.median(flux[np.invert(time_mask) & self.clean_filtermasks[1]]),4]
+        
+        #365 used to be 100 keep that in mind
+        boundings = ([1,t_0_guess-365,0,0,np.min(flux[no_i_mask]),3],[np.log10(np.max(flux_fit*2)),t_0_guess+365,4,4,.5*np.max(flux_fit),5]) 
+        boundings_g = ([1,t_0_guess-100,0,0,np.percentile(flux[np.invert(time_mask)&self.clean_filtermasks[0]],5),3], #lower bounds
+                       [np.log10(np.max(flux_fit*2)),t_0_guess+100,4,4,np.percentile(flux[np.invert(time_mask)&self.clean_filtermasks[0]],95),5]) #upper boundings
+        boundings_r = ([1,t_0_guess-100,0,0,np.percentile(flux[np.invert(time_mask)&self.clean_filtermasks[1]],5),3], 
+                       [np.log10(np.max(flux_fit*2)),t_0_guess+100,4,4,np.percentile(flux[np.invert(time_mask)&self.clean_filtermasks[1]],95),5]) #upper boundings
+
+        #initializing all the variables that need to be used later on with self.
+        self.ztf_name = ztf_name
+        self.ztf_dir = ztf_dir
+
+        self.no_i_mask = no_i_mask
+        self.time_zeropoint = time_zeropoint
+        self.time_mask = time_mask
+
+        self.clean_data = clean_data
+        self.flux, self.err, self.time = self.clean_data[['flux','flux_unc','time']].T.to_numpy(dtype=np.float64)
+        self.flux_fit,self.err_fit,self.time_fit,self.filters_fit = flux_fit,err_fit,time_fit,filters_fit
+
+        if sum(self.clean_filtermasks[-1]) == 0:
+            self.no_i_data = True
+        else:
+            self.no_i_data = False
+
+        self.logfile = logfile
+        self.unclean_data = unclean_data
+        self.g_center = g_center
+        self.r_center = r_center
+        self.i_center = i_center
+        self.nu_0, self.nu_1 = nu_0, nu_1
+        self.guesses, self.boundings= guesses, boundings
+        self.guesses_g, self.guesses_r = guesses_g, guesses_r
+        self.boundings_g, self.boundings_r = boundings_g, boundings_r
+        self.chi2_results, self.peak_ind, self.t_0_guess, self.peak_guess = chi2_results, peak_ind, t_0_guess, peak_guess
+        self.time_mask_pure = time_mask_pure
+
+
+    def plot_clean_unclean_data(self,clean_ylim=True):
+        if self.no_gr_flag:
+            return
+
+        clean_flux, clean_err, clean_time = self.flux,self.err,self.time
+        raw_flux, raw_err, raw_time = self.unclean_data[['forcediffimflux','forcediffimfluxunc','jd']].T.to_numpy(dtype=np.float64)
+        raw_flux = sjoert.stellar.mag2flux(self.unclean_data['zpdiff']) * 1e6 * raw_flux
+        raw_err = sjoert.stellar.mag2flux(self.unclean_data['zpdiff']) * 1e6 * raw_err
+        raw_time -= self.time_zeropoint
+
+        raw_filtersmasks = [(self.unclean_data['filter'] == 'ZTF_g'), (self.unclean_data['filter'] == 'ZTF_r'), (self.unclean_data['filter'] == 'ZTF_i')]
+        colors = ['green','red','brown']
+        names = ['ZTF g-band','ZTF r-band','ZTF i-band']
+        rawlabels = ['Raw data',None,None]
+
+        num_rows = np.sum([ 1 if np.sum(fmask) > 0 else 0 for fmask in raw_filtersmasks])
+        fig,axes = plt.subplots(nrows=num_rows,sharex=True,figsize=(8,8))
+        plt.suptitle(self.ztf_name,fontsize=14)
+        axes[0].xaxis.set_tick_params(which='both', labelbottom=True)
+        axes[1].xaxis.set_tick_params(which='both', labelbottom=True)
+
+        lines = []
+        labels = []
+
+        for i,ax in enumerate(axes):
+            ax.set_title(names[i])
+            ax.errorbar(raw_time[raw_filtersmasks[i]],raw_flux[raw_filtersmasks[i]],raw_err[raw_filtersmasks[i]],fmt=',',alpha=0.5,c='gray',label=rawlabels[i],capsize=2)
+            if i == 2:
+                if self.no_i_data:
+                    print("There is no clean ZTF i-band data.")
+                else:
+                    ax.errorbar(clean_time[self.clean_filtermasks[i]],clean_flux[self.clean_filtermasks[i]],clean_err[self.clean_filtermasks[i]],fmt=',',c=colors[i],label=names[i],capsize=2)
+            else:
+                ax.errorbar(clean_time[self.clean_filtermasks[i]],clean_flux[self.clean_filtermasks[i]],clean_err[self.clean_filtermasks[i]],fmt=',',c=colors[i],label=names[i],capsize=2)
+            
+            ax.set_ylabel(r'Flux [$\mu$Jy]',fontsize=12)
+            Line, Label = ax.get_legend_handles_labels() 
+            lines.extend(Line) 
+            labels.extend(Label)
+            if clean_ylim:
+                if i == 2 and self.no_i_data:
+                    pass
+                else:
+                    ax.set_ylim(1.25*np.min(clean_flux[self.clean_filtermasks[i]]),1.25*np.max(clean_flux[self.clean_filtermasks[i]]))
+        
+        
+        plt.xlabel(f'Time [mjd] w.r.t. JD {self.time_zeropoint}',fontsize=12)
+        fig.tight_layout()
+        fig.legend(lines,labels,bbox_to_anchor=[1.2,0.6],fontsize=12)
+        plt.show()
     
-#     plt.xlabel(f'Time [mjd] w.r.t. JD {time_zeropoint}',fontsize=12)
-#     fig.tight_layout()
-#     plt.show()
+    def BB(self,nu,T):
+        #Blackbody spectrum for a certain frequency given in Hz, not an array of values
+        factor = 2*h*np.power(nu,3)/(c**2)
+        exponent = (h*nu)/(k*T)
+        return factor /(np.exp(exponent)-1)
+    
+    def BB_ratio(self,T,v,v_0):
+        return self.BB(v,T)/self.BB(v_0,T)
 
-# def BB(nu,T):
-#     #Blackbody spectrum for a certain frequency given in Hz, not an array of values
-#     factor = 2*h*np.power(nu,3)/(c**2)
-#     exponent = (h*nu)/(k*T)
-#     return factor /(np.exp(exponent)-1)
+    def gauss_exp(self,t,nu,nu_0,no_baseline,*p):
 
-# def BB_ratio(T):
-#     return BB(v1,T)/BB(v0,T)
+        Fp = 10**p[0]
+        t_0 = p[1]
+        sigma_rise = 10**p[2]
+        tau_dec = 10**p[3]
+        no_temp = False
+        try:
+            T = 10**p[5]
+        except:
+            no_temp = True
+        if no_baseline:
+            T = 10**p[4]
+            no_temp = False
+            F_0 = 0
+        else:
+            F_0 = p[4]
 
-# #With BB temperature correction, used for fitting to ZTF_g and ZTF_r data
-# def gauss_exp_fit(t,*p):
-#     Fp = 10**p[0]
-#     peak_position = p[1]
-#     sigma_rise = 10**p[2]
-#     tau_dec = 10**p[3]
-#     F0 = p[4]
-#     T = 10**p[5]
+        trel = t - t_0
+        gaussian = lambda t1: Fp * np.exp(-(np.square(t1-t_0)/(2*sigma_rise**2))) + F_0
+        exp_decay = lambda t1: Fp * np.exp(-(t1-t_0)/tau_dec) + F_0
 
-#     trel = t - peak_position
-#     gaussian = lambda t: Fp * np.exp(-(np.square(t-peak_position)/(2*sigma_rise**2))) + F0
-#     exp_decay = lambda t: Fp * np.exp(-(t-peak_position)/tau_dec) + F0
+        function = np.piecewise(t,[trel <= 0,trel>0],[gaussian, exp_decay])
+        # print((exp_decay(t[np.abs(t - t_0).argmin()]) - F_0 )/ Fp)
+        if no_temp:
+            return function
+        else:
+            return function* self.BB_ratio(T,nu,nu_0) #for plotting it should be specified at what frequency we are looking.
+    
+        
+    #With BB temperature correction, used for comparing to ZTF_g and ZTF_r data
+    def gauss_exp_fit(self,t,*p):
+        return self.gauss_exp(t,self.nu_1,self.nu_0,False,*p)
+    
+    def gauss_exp_fit_no_baseline(self,t,*p):
+        return self.gauss_exp(t,self.nu_1,self.nu_0,True,*p)
 
-#     function = np.piecewise(t,[trel <= 0,trel>0],[gaussian, exp_decay])
-#     return function * BB_ratio(T)
+    def gauss_exp_fit_g(self,t,*p):
+        return self.gauss_exp(t,self.g_center,self.nu_0,False,*p)
+    
+    def gauss_exp_fit_r(self,t,*p):
+        return self.gauss_exp(t,self.r_center,self.nu_0,False,*p)
 
-# #without the BB correction, used for plotting. 
-# def gauss_exp(t,*p):
-#     Fp = 10**p[0]
-#     peak_position = p[1]
-#     sigma_rise = 10**p[2]
-#     tau_dec = 10**p[3]
-#     F0 = p[4]
-#     T = 10**p[5]
+    def gauss_exp_fit_for_plot(self,t,v1,v0,*p):
+        return self.gauss_exp(t,v1,v0,True,*p)
+    
+    def gauss_exp_baseline_peak(self,t,t_0,sigma_rise,tau_dec,T,v0,v1,*p):
+        #only baseline and peak are fittable, used for i band
+        #v0 is the same as before, v1 is the i band central frequency
+        Fp = 10**p[0]
+        F_0 = p[1]
 
-#     trel = t - peak_position
-#     gaussian = lambda t: Fp * np.exp(-(np.square(t-peak_position)/(2*sigma_rise**2))) + F0
-#     exp_decay = lambda t: Fp * np.exp(-(t-peak_position)/tau_dec) + F0
+        trel = t - t_0
+        gaussian = lambda t: Fp * np.exp(-(np.square(t-t_0)/(2*sigma_rise**2))) + F_0
+        exp_decay = lambda t: Fp * np.exp(-(t-t_0)/tau_dec) + F_0
 
-#     # trel2 = t - t[np.argmin(gaussian(t)-Fp)]
-#     # print(trel2)
-#     function = np.piecewise(t,[trel <= 0,trel>0],[gaussian, exp_decay])
-#     return function 
+        function = np.piecewise(t,[trel <= 0,trel>0],[gaussian, exp_decay])
+        return function #* self.BB_ratio(T,v1,v0)
+
+
+    def fit(self,plot=True,fit_i=True):
+        #If this is an instance with no viable g or r data, return immediately to prevent errors.
+        if self.no_gr_flag:
+            return
+
+        # First fit g and r seperately to find the baseline correction.
+        popt_g, pcov_g = curve_fit(self.gauss_exp_fit_g,self.time_fit[self.clean_filtermasks[0][self.time_mask]],
+                                   self.flux_fit[self.clean_filtermasks[0][self.time_mask]],
+                                    p0=self.guesses_g[:-1],bounds=[b[:-1] for b in self.boundings_g],
+                                    sigma=self.err_fit[self.clean_filtermasks[0][self.time_mask]],
+                                    full_output=False,
+                                    absolute_sigma=True) 
+
+        popt_r, pcov_r = curve_fit(self.gauss_exp_fit_r,self.time_fit[self.clean_filtermasks[1][self.time_mask]],
+                                self.flux_fit[self.clean_filtermasks[1][self.time_mask]],
+                                p0=self.guesses_r[:-1],bounds=[b[:-1] for b in self.boundings_r],
+                                sigma=self.err_fit[self.clean_filtermasks[1][self.time_mask]],
+                                full_output=False,
+                                absolute_sigma=True)
+        
+        #Get the filter dependent baseline and its error from the fit.
+        F0_g, F0_g_err = popt_g[-1], np.sqrt(np.diag(pcov_g)[-1])
+        F0_r, F0_r_err = popt_r[-1], np.sqrt(np.diag(pcov_r)[-1])
+
+        #Create an array with varying values, either the g-band baseline or the r-band baseline, used for fitting both filters together
+        #much in the same way as we did for nu_1
+        baseline = [F0_g if self.filters_fit[i] == 'ZTF_g' else F0_r for i in range(len(self.filters_fit))]
+        baseline_err = [F0_g_err if self.filters_fit[i] == 'ZTF_g' else F0_r_err for i in range(len(self.filters_fit))]
+
+
+        #fitting g and r together to get the other parameter values. The data is fitted on baseline transposed data 
+        #(with subsequent error propagation) but this is not the shown data in the plot.
+        popt,pcov = curve_fit(self.gauss_exp_fit_no_baseline,self.time_fit,self.flux_fit - baseline,
+                                            p0=self.guesses[:-2]+[self.guesses[-1]],bounds=[b[:-2]+[b[-1]] for b in self.boundings],
+                                            sigma=np.sqrt(np.square(self.err_fit) + np.square(baseline_err)),
+                                            full_output=False,
+                                            absolute_sigma=True)
+
+        #Get the error estimates from the covariance matrix
+        perr = np.sqrt(np.diag(pcov))
+
+        #No i-data? Then don't try to fit a baseline and peak to i 
+        if np.sum(np.invert(self.no_i_mask)) == 0:
+            fit_i = False
+        if fit_i:
+            #Fitting on i-band data. We fit here only a baseline and a peak keeping the other found parameters equal.
+            i_func_to_fit = lambda t,*p: self.gauss_exp_baseline_peak(t,popt[1],popt[2],popt[3],popt[4],self.nu_0,self.i_center,*p)
+            only_i_mask = np.invert(self.no_i_mask)
+            i_time = self.clean_data['time'][only_i_mask].values
+            i_flux,i_flux_err = self.clean_data['flux'][only_i_mask].values, self.clean_data['flux_unc'][only_i_mask].values
+
+        #Initial guesses and boundings for fitting in order: Fp, peak_pos, sigma, tau_dec, F0, T
+        #check if there is even any data within the time-frame in which we fit the data
+        #if there isn't we can just use the i-data as is since it always exists outside our time-frame
+
+            if len(i_flux[np.invert(self.time_mask_pure)[only_i_mask]]) ==0:
+                i_guesses = [np.log10(np.max(i_flux)),np.median(i_flux)]
+                i_bounds = ([np.log10(0.5*np.max(i_flux)),np.percentile(i_flux,5)],
+                        [np.log10(np.max(i_flux*2)),np.percentile(i_flux,95)])
+            #otherwise, we must do some calculations to make sure we do our estimations on the data outside the timeframe
+            else:
+                f_guess_bounds = i_flux[np.invert(self.time_mask_pure)[only_i_mask]] #Get only the i data that exists outside our time-frame
+                if len(f_guess_bounds) <= 2:
+                    f_guess_bounds = i_flux
+
+                i_guesses = [np.log10(np.max(i_flux)),np.median(f_guess_bounds)]
+                i_bounds = ([np.log10(0.5*np.max(i_flux)),np.percentile(f_guess_bounds,5)],
+                        [np.log10(np.max(i_flux*2)),np.percentile(f_guess_bounds,95)])
+
+            #Fit i
+            popt_i,pcov_i = curve_fit(i_func_to_fit,i_time,i_flux,
+                                            p0=i_guesses,
+                                            bounds=i_bounds,
+                                            sigma=i_flux_err,
+                                            full_output=False,
+                                            absolute_sigma=True)
+            
+
+        if plot:
+            #array to smoothen the line in the figure
+            moretimes = np.linspace(min(self.time_fit),max(self.time_fit),1000)
+
+            centers = [self.g_center,self.r_center,self.i_center]
+            
+            baseline_corr = [F0_g,F0_r,0]
+
+            #Get the fits for the three filters, undoing the transposition of the baseline correction from before.
+            fits_plot = [self.gauss_exp_fit_for_plot(moretimes,c,self.nu_0,*popt) + baseline_corr[i] for i,c in enumerate(centers)]
+            
+            #If we fitted i, the third entry in fits_plot is now inaccurate since we have a better baseline
+            #and peak, so re-do this.
+            if fit_i:
+                #order: Fp, peak_pos, sigma, tau_dec, F0, T
+                new_popt = [popt_i[0],*popt[1:4],popt_i[1]]#,popt[-1]]
+                fits_plot[2] = self.gauss_exp(moretimes,self.i_center,self.nu_0,False,*new_popt)
+
+            #Create a string for presenting the parameters in the figure
+            paramstr = ''
+            newnames = [r'log$_{10}$(F$_\mathrm{p}$)',r't$_0$',r'log$_{10}(\sigma_\mathrm{rise}$)',r'log$_{10}(\tau_\mathrm{dec}$)',r'log$_{10}$(T)']
+            for i,n in enumerate(newnames):
+                paramstr += f'{n} = {popt[i]:.2f} ± {perr[i]:.3f}'
+                paramstr += '\n'
+
+            colors = ['green','red','brown']
+            labels_ebar = ['ZTF: g-band','ZTF: r-band','ZTF: i-band']
+            lines = []
+            labels = []
+
+            fig,axes = plt.subplots(nrows=3,sharex=True,figsize=(8,8))
+            #so that ticks are visible on each x-axis but (because of sharex = True) no label except for the bottom axis.
+            axes[0].xaxis.set_tick_params(which='both', labelbottom=True)
+            axes[1].xaxis.set_tick_params(which='both', labelbottom=True)
+            #plot the data and fits
+            for i,ax in enumerate(axes):
+                ax.errorbar(self.clean_data['time'][self.clean_filtermasks[i]],self.clean_data['flux'][self.clean_filtermasks[i]],
+                            self.clean_data['flux_unc'][self.clean_filtermasks[i]],
+                            fmt='.',c=colors[i],label=labels_ebar[i],capsize=2)
+                if i == 0:
+                    ax.plot(moretimes,fits_plot[i],c='black',zorder=10,label='Fit')
+                else:
+                    ax.plot(moretimes,fits_plot[i],c='black',zorder=10)
+
+                if i < 2:#used to be <3. <2 excludes i but < 3 is always true here
+                    if i == 0:
+                        ax.scatter(self.t_0_guess,self.peak_guess,s=50,marker='x',c='blue',zorder=10,label='Starting point') 
+                    else:
+                        ax.scatter(self.t_0_guess,self.peak_guess,s=50,marker='x',c='blue',zorder=10) 
+
+                ax.set_ylabel(r"Flux ($\mu$Jy)",fontsize=12)
+
+                #For the legend
+                Line, Label = ax.get_legend_handles_labels() 
+                lines.extend(Line) 
+                labels.extend(Label)
+                
+            #Add in the first baseline and add it to the legend lists, since every baseline looks the same
+            axes[0].hlines(F0_g,min(self.time),max(self.time),linestyles='dashed',colors='black',label='Baseline')#,label=r'F$_{0,g} = $' + f'{F0_g:.3f} ± {F0_g_err:.3f}')
+            lin,lab = axes[0].get_legend_handles_labels()
+            idx = np.where(np.array(lab) == 'Baseline')[0][0]
+            lines.append(lin[idx])
+            labels.append(lab[idx])
+
+            axes[1].hlines(F0_r,min(self.time),max(self.time),linestyles='dashed',colors='black')#,label=r'F$_{0,r} = $' + f'{F0_r:.3f} ± {F0_r_err:.3f}')
+            if fit_i:
+                axes[2].hlines(popt_i[1],min(self.time),max(self.time),linestyles='dashed',color='black')
+        
+            #Final parameters in the text
+            paramstr += r'F$_{0,g} = $' + f'{F0_g:.2f} ± {F0_g_err:.3f}\n'
+            paramstr += r'F$_{0,r} = $' + f'{F0_r:.2f} ± {F0_r_err:.3f}'
+
+            axes[-1].set_xlabel(f"Time (mjd - 2458484.5)",fontsize=12)
+
+            plt.text(0.835,0.125,paramstr,fontsize=10,backgroundcolor='lightgray',zorder=-1,transform=plt.gcf().transFigure)
+
+            plt.suptitle(self.ztf_name,fontsize=14)
+            fig.legend(lines,labels,bbox_to_anchor=[1.055,0.6],fontsize=12)
+            fig.tight_layout()
+            plt.show()
+        
+        #So that parameters may be saved in the save_parameters function.
+        self.popt = popt
+        self.perr = np.sqrt(np.diag(pcov)) #you never need pcov
+        self.popt_r,self.perr_r = popt_r,np.sqrt(np.diag(pcov_r))
+        self.popt_g,self.perr_g = popt_g, np.sqrt(np.diag(pcov_g))
+        if plot:
+            self.fits_plot = fits_plot
+
+

@@ -29,7 +29,6 @@ def q_cuts(ZTF, softcuts=True,output=False):
     app_flux_ratio = ZTF['forcediffimfluxap'] / ZTF['forcediffimflux']
     app_psf_diff = (ZTF['forcediffimfluxap'] - ZTF['forcediffimflux']) #/ np.abs(ZTF['forcediffimfluxap'])
 
-    #(np.abs(np.log10(app_flux_ratio)) <1.5) *\
 
     #final three masks added by Tim from section 6.1 of "A New Forced Photometry Service for the Zwicky Transient Facility" 
     iok =   (ZTF['procstatus'] != '56') * \
@@ -108,28 +107,38 @@ def flux_unc_val(ZTF,output=False):
 
     return unc
 
-##OLD
-# def clean_data(data,filename=None,savepath=None,split_filters=True):
-#     iok = q_cuts(data) * field_check(data)
-#     idx_bad = np.where(np.invert(iok))[0]
-#     data_ok = data[iok]
-#     if savepath != None:
-#         pd.DataFrame({"bad_idx":[idx_bad],"median_chi_before":np.median(data['forcediffimchisq']),"median_chi_after":np.median(data_ok['forcediffimchisq'])}).to_csv(\
-#             os.path.join(savepath,'clean_log.txt'),sep=' ',index=False)
-#     if split_filters:
-#         for filter,filter_data in filter_split(data_ok).items():
-#             new_unc = np.array(flux_unc_val(filter_data))
-#             norm_jd = np.array(filter_data['jd'] - filter_data['jd'].iloc[0])
-#             clean_data = pd.DataFrame({"time":norm_jd,"flux":filter_data['forcediffimflux'].values,"flux_unc":new_unc,
-#                                     "zeropoint":filter_data['zpdiff'].values})
-#             if savepath != None:
-#                 assert filename != None
-#                 savestring = os.path.join(savepath,"clean_"+filter+"_"+filename)
-#                 clean_data.to_csv(savestring,sep=' ',index=False)
-#             else:
-#                 print(clean_data)
-#                 print(20*'--')
-          
+
+def make_header(logfilepath):
+    logfilename = os.path.split(logfilepath)[-1]
+    logstr = f"#See {logfilename} for thorough overview of cleaning process.\n#Headers: time [jd], flux [ujy], flux uncertainty [ujy], zeropoint [mag], filter"
+    with open(logfilepath,'r') as logfile:
+        logdata = json.load(logfile)
+    filters = ["ZTF_g","ZTF_r","ZTF_i"]
+    for filt in filters:
+        try:
+            filter_data = logdata[filt]
+        except KeyError:
+            continue
+        if filter_data['no_viable_data']:
+            if filt =='ZTF_g' or filt == "ZTF_r":
+                logstr += f'No viable data in {filt}. This data will thus not be fitted.\n#'
+            else:
+                logstr += f'No viable data in {filt}.\n#'
+    logstr += '\n'
+    return logstr
+
+def line_prepender(filename):
+    filedir,ztf_clean_data = os.path.split(filename)
+    logdir = os.path.join(filedir,ztf_clean_data.split("_")[0]+"_clean_log.json")
+    headerstring = make_header(logdir)
+    with open(filename, 'r+') as f:
+        content = f.read()
+        if '#See' in content:
+            return
+        f.seek(0, 0)
+        f.write(headerstring.rstrip('\r\n') + '\n' + content)
+
+
 
 def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
     """Cleans ZTF batch request data using the qcuts function. The removed data is neatly logged on a per filter - per field basis. The cleaning
@@ -156,7 +165,7 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
     dtypes = [(columns[x],float) for x in range(len(columns))]
     dtypes[4] = ('filter',r'U8')
     data = pd.DataFrame(np.genfromtxt(datapath,skip_header=53,dtype=dtypes))
- 
+
     clean_data_full = pd.DataFrame() #an empty frame on which the data from every filter will be vertically stacked.
     iok = q_cuts(data) #very first quality check, mask array of good data points.
     data_ok = data[iok]
@@ -165,11 +174,12 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
     filters = np.unique(data['filter'])
     filtermasks = [data['filter'] == f for f in filters]
     # fields,field_counts = np.unique(data['field'],return_counts=True) #return_counts for picking the primary field
-    fields,_ = np.unique(data_ok['field'],return_counts=True) #Do we want the primary field on data or on data_ok?
+    fields,_ = np.unique(data_ok['field'],return_counts=True) #We want the primary field on data_ok
     fieldmasks = [data['field'] == fid for fid in fields]
 
-    if iok.sum() == 0: #this might occur, this prevents an error
-        print(f"{ZTF_ID}: no viable data found in the batch request. Proceeding to next file.")
+    if iok.sum() == 0: #this might occur, this prevents an error later on
+        if verbose:
+            print(f"{ZTF_ID}: no viable data found in the batch request. Proceeding to next file.")
         return 
     
     for i,filter in enumerate(filters):
@@ -179,7 +189,8 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
             iok_filter = (iok * filtermask) #this checks if something is ok according to qcuts and is in a certain filter. Has the same len as data.
             
             if iok_filter.sum() == 0: #this might occur, this prevents an error
-                print(f"{ZTF_ID}: no viable data found in {filter}. Proceeding to next filter.")
+                if verbose:
+                    print(f"{ZTF_ID}: no viable data found in {filter}. Proceeding to next filter.")
                 logdict[filter]["no_viable_data"] = 1
                 continue
 
@@ -194,7 +205,8 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
 
                 logdict[filter][fid] = {}
                 if iok_filter_field.sum() == 0: #this might occur, this prevents an error
-                    print(f"{ZTF_ID}: no viable data found in field {fid} of filter {filter}. Proceeding to next field for this filter.")
+                    if verbose:
+                        print(f"{ZTF_ID}: no viable data found in field {fid} of filter {filter}. Proceeding to next field for this filter.")
                     logdict[filter][fid]["no_viable_data"] = 1 #can be used for a check when loading in the data; if this is True then the data is useless in this particular field / filter combo
                     continue
 
@@ -205,6 +217,7 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
                 logdict[filter][fid] = {"primary_field":int(primary_field[j]),
                                         "median_zeropoint":np.median(zeropoint),'std_zeropoint':np.std(zeropoint),
                                         "removed_in_cleaning":np.sum(np.invert(iok_filter_field)),
+                                        "amount_before_cleaning": len(iok_filter_field),
                                         "median_chi2":np.median(data_filter_field['forcediffimchisq']),
                                             "no_viable_data":0}
 
@@ -219,7 +232,8 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
                     clean_data_full = pd.concat([clean_data_full,clean_data_filt],ignore_index=True)
         
     if savepath != None:
-        clean_data_full.to_json(os.path.join(savepath,str(ZTF_ID)+'_clean_data.json'))
+        # clean_data_full.to_json(os.path.join(savepath,str(ZTF_ID)+'_clean_data.json'))
+        clean_data_full.to_csv(os.path.join(savepath,str(ZTF_ID)+'_clean_data.txt'),sep='\t',index=None,header=None,mode='a')
         with open(os.path.join(savepath,str(ZTF_ID)+'_clean_log.json'),'w') as outfile:
             json.dump(logdict,outfile,indent=4,ensure_ascii=False,separators=(',',':'),cls=NumpyEncoder)
     else:
@@ -228,6 +242,32 @@ def clean_data(datapath,ZTF_ID,savepath=None,verbose=False):
             print(clean_data_full.to_markdown())
             print()
             print(logdict)
+                    
+
+def clean_iter(datapath):
+    for folder in os.listdir(datapath)[::-1]:
+        if folder.isnumeric(): #only the once with years as names
+            for ZTF_folder in tqdm(os.listdir(os.path.join(datapath,folder))):
+                if "ZTF" in ZTF_folder:
+                    folderpath = os.path.join(datapath,folder,ZTF_folder)
+                    ztf_id = os.path.split(folderpath)[-1]
+                    for file in os.listdir(folderpath):
+                        if os.path.isfile(os.path.join(folderpath,f"{ZTF_folder}_clean_data.txt")):
+                            # print(f"{ZTF_folder} already cleaned")
+                            continue
+                        if 'clean' not in file and 'parameters' not in file:
+                            filepath = os.path.join(folderpath,file)
+                            # print(filepath)
+                            try:
+                                clean_data(filepath,ztf_id,savepath=folderpath,verbose=False) 
+                                line_prepender(os.path.join(folderpath,f'{ZTF_folder}_clean_data.txt'))
+                            except (ValueError,FileNotFoundError) as err:
+                                print(err)
+                                print(folderpath,ztf_id)
+                                # return
+                                continue
+
+
                     
 
 sjoertpath = r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Data\Sjoert_Flares'
