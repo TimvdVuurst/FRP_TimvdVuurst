@@ -117,15 +117,17 @@ def cross_correlation(flux,time,time_zeropoint=2458484.5,full_output=True):
     cross_corr = np.zeros_like(timesteps_for_gauss)
 
     #interpolate the data at the timesteps we use so that the arrays have the same shape.
-    interp_data = np.interp(timesteps_for_gauss,time,flux)
+    # interp_data = np.interp(timesteps_for_gauss,time,flux)#/np.max(flux)
 
     for i,t in enumerate(timesteps_for_gauss):
         #we evaluate the gaussian at the defined timesteps and use the interpolated data to compare to. This usually reduces 
         #runtime greatly compared to evaluating the gaussian at all times in "time" and using the actual flux data
         #and gives comparable results.
-        cross_corr[i] = np.dot(gaussian(timesteps_for_gauss,amp=1,mu=t),interp_data)
+        interp_gauss = np.interp(time,timesteps_for_gauss,gaussian(timesteps_for_gauss,amp=1,mu=t))
+        cross_corr[i] = np.dot(interp_gauss,flux)
     
     #best fit is the highest cross correlation
+    
     peak = np.argmax(cross_corr)
 
     #finding the flux of the closest corresponding time in the actual data as the corresponding flux to the peak guess
@@ -260,16 +262,51 @@ class ZTF_forced_phot:
 
         #Initial guesses and boundings for fitting in order: Fp, peak_pos, sigma, tau_dec, F0, T
         #There are seperate initial guesses for g and r only fitting, namely in the baseline
-        guesses = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,0,4]
-        guesses_g = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,np.median(flux[np.invert(time_mask) & self.clean_filtermasks[0]]),4]
-        guesses_r = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,np.median(flux[np.invert(time_mask) & self.clean_filtermasks[1]]),4]
         
+        guesses = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,0,4]
         #365 used to be 100 keep that in mind
         boundings = ([1,t_0_guess-365,0,0,np.min(flux[no_i_mask]),3],[np.log10(np.max(flux_fit*2)),t_0_guess+365,4,4,.5*np.max(flux_fit),5]) 
-        boundings_g = ([1,t_0_guess-100,0,0,np.percentile(flux[np.invert(time_mask)&self.clean_filtermasks[0]],5),3], #lower bounds
-                       [np.log10(np.max(flux_fit*2)),t_0_guess+100,4,4,np.percentile(flux[np.invert(time_mask)&self.clean_filtermasks[0]],95),5]) #upper boundings
-        boundings_r = ([1,t_0_guess-100,0,0,np.percentile(flux[np.invert(time_mask)&self.clean_filtermasks[1]],5),3], 
-                       [np.log10(np.max(flux_fit*2)),t_0_guess+100,4,4,np.percentile(flux[np.invert(time_mask)&self.clean_filtermasks[1]],95),5]) #upper boundings
+        
+        #For g and r seperate we need to be more careful
+        #these may be very low
+        gfilt_time_mask = np.invert(time_mask)&self.clean_filtermasks[0] 
+        rfilt_time_mask = np.invert(time_mask)&self.clean_filtermasks[1]
+
+        #It may happen that the flux outside of the time_mask range for a given filter is only a single point, meaning the lower and 
+        #upper bounds for the baselines will be the same value. If this is the case, take the percentile of the entire filter data
+        #start with all data, see if we can reduce that to only the data outside the fit range
+        lower_baseline_g = np.percentile(flux[self.clean_filtermasks[0]],5)
+        upper_baseline_g = np.percentile(flux[self.clean_filtermasks[0]],95)
+        median_baseline_g = np.median(flux[self.clean_filtermasks[0]])
+        if np.sum(gfilt_time_mask) > 2:
+            lower_baseline_g = np.percentile(flux[gfilt_time_mask],5)
+            upper_baseline_g = np.percentile(flux[gfilt_time_mask],95)
+            median_baseline_g = np.median(flux[gfilt_time_mask])
+
+        if lower_baseline_g == upper_baseline_g:
+            lower_baseline_g = np.percentile(flux[self.clean_filtermasks[0]],5)
+            upper_baseline_g = np.percentile(flux[self.clean_filtermasks[0]],95)
+        
+        guesses_g = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,median_baseline_g,4]
+        boundings_g = ([1,t_0_guess-100,0,0,lower_baseline_g,3], #lower bounds
+                    [np.log10(np.max(flux_fit*2)),t_0_guess+100,4,4,upper_baseline_g,5]) #upper boundings
+        
+        #start with all data, see if we can reduce that to only the data outside the fit range
+        lower_baseline_r = np.percentile(flux[self.clean_filtermasks[1]],5)
+        upper_baseline_r = np.percentile(flux[self.clean_filtermasks[1]],95)
+        median_baseline_r = np.median(flux[self.clean_filtermasks[1]])
+        if np.sum(rfilt_time_mask) > 2:
+            lower_baseline_r = np.percentile(flux[rfilt_time_mask],5)
+            upper_baseline_r = np.percentile(flux[rfilt_time_mask],95)
+            median_baseline_r = np.median(flux[rfilt_time_mask])            
+
+        if lower_baseline_r == upper_baseline_g:
+            lower_baseline_r = np.percentile(flux[self.clean_filtermasks[1]],5)
+            upper_baseline_r = np.percentile(flux[self.clean_filtermasks[1]],95)
+        
+        guesses_r = [np.log10(np.max(flux_fit)),t_0_guess,1,2.5,median_baseline_r,4]
+        boundings_r = ([1,t_0_guess-100,0,0,lower_baseline_r,3], 
+                       [np.log10(np.max(flux_fit*2)),t_0_guess+100,4,4,upper_baseline_r,5]) #upper boundings
 
         #initializing all the variables that need to be used later on with self.
         self.ztf_name = ztf_name
@@ -475,36 +512,42 @@ class ZTF_forced_phot:
         #Initial guesses and boundings for fitting in order: Fp, peak_pos, sigma, tau_dec, F0, T
         #check if there is even any data within the time-frame in which we fit the data
         #if there isn't we can just use the i-data as is since it always exists outside our time-frame
+            if np.sum(i_flux > 0) > 2: #if there are more than 2 positively valued points, meaning we can do percentiles and medians:
+                if len(i_flux[np.invert(self.time_mask_pure)[only_i_mask]]) < 2:
+                    i_guesses = [np.log10(np.max(i_flux)),np.median(i_flux)]
+                    i_bounds = ([np.log10(0.5*np.max(i_flux)),np.percentile(i_flux,5)],
+                            [np.log10(np.max(i_flux*2)),np.percentile(i_flux,95)])
+                #otherwise, we must do some calculations to make sure we do our estimations on the data outside the timeframe
+                else:
+                    f_guess_bounds = i_flux[np.invert(self.time_mask_pure)[only_i_mask]] #Get only the i data that exists outside our time-frame
+                    if len(f_guess_bounds) <= 2:
+                        f_guess_bounds = i_flux
 
-            if len(i_flux[np.invert(self.time_mask_pure)[only_i_mask]]) ==0:
-                i_guesses = [np.log10(np.max(i_flux)),np.median(i_flux)]
-                i_bounds = ([np.log10(0.5*np.max(i_flux)),np.percentile(i_flux,5)],
-                        [np.log10(np.max(i_flux*2)),np.percentile(i_flux,95)])
-            #otherwise, we must do some calculations to make sure we do our estimations on the data outside the timeframe
+                    i_guesses = [np.log10(np.max(i_flux)),np.median(f_guess_bounds)]
+                    i_bounds = ([np.log10(0.5*np.max(i_flux)),np.percentile(f_guess_bounds,5)],
+                                [np.log10(np.max(i_flux*2)),np.percentile(f_guess_bounds,95)])
+
             else:
-                f_guess_bounds = i_flux[np.invert(self.time_mask_pure)[only_i_mask]] #Get only the i data that exists outside our time-frame
-                if len(f_guess_bounds) <= 2:
-                    f_guess_bounds = i_flux
-
-                i_guesses = [np.log10(np.max(i_flux)),np.median(f_guess_bounds)]
-                i_bounds = ([np.log10(0.5*np.max(i_flux)),np.percentile(f_guess_bounds,5)],
-                        [np.log10(np.max(i_flux*2)),np.percentile(f_guess_bounds,95)])
-
-            #Fit i
-            popt_i,pcov_i = curve_fit(i_func_to_fit,i_time,i_flux,
-                                            p0=i_guesses,
-                                            bounds=i_bounds,
-                                            sigma=i_flux_err,
-                                            full_output=False,
-                                            absolute_sigma=True)
-            
+                fit_i = False
+ 
+            # print(f_guess_bounds)
+            # print(i_guesses)
+            # print(i_bounds)
+            if fit_i:
+                popt_i,pcov_i = curve_fit(i_func_to_fit,i_time,i_flux,
+                                                p0=i_guesses,
+                                                bounds=i_bounds,
+                                                sigma=i_flux_err,
+                                                full_output=False,
+                                                absolute_sigma=True)
+                
 
         #calculate the chi2/dof for the g and r data combined
         dof = len(self.filters_fit) - (len(popt) + 2) #number of points in g and r - the amount of parameters (popt and the 2 baselines)
-        chi2 = chi2(self.flux_fit - baseline,np.sqrt(np.square(self.err_fit) + np.square(baseline_err)),
+        chi2_val = chi2(self.flux_fit - baseline,np.sqrt(np.square(self.err_fit) + np.square(baseline_err)),
                        self.gauss_exp_fit_no_baseline(self.time_fit,*popt))
         
-        print(f'Found chi2/dof = {chi2/dof:.6f}')
+        # print(f'Found chi2/dof = {chi2_val/dof:.6f}')
 
 
         if plot:
@@ -578,7 +621,7 @@ class ZTF_forced_phot:
             #Final parameters in the text
             paramstr += r'F$_{0,g} = $' + f'{F0_g:.2f} ± {F0_g_err:.3f}\n'
             paramstr += r'F$_{0,r} = $' + f'{F0_r:.2f} ± {F0_r_err:.3f}\n'
-            paramstr += r'$\chi ^2_{\nu}$ = ' + f'{chi2/dof:.3f}'
+            paramstr += r'$\chi ^2_{\nu}$ = ' + f'{chi2_val/dof:.3f}'
 
 
             axes[-1].set_xlabel(f"Time (mjd - 2458484.5)",fontsize=12)
@@ -598,7 +641,7 @@ class ZTF_forced_phot:
         self.perr = np.concatenate([np.sqrt(np.diag(pcov)),[F0_g_err,F0_r_err]])
         self.popt_r,self.perr_r = popt_r,np.sqrt(np.diag(pcov_r))
         self.popt_g,self.perr_g = popt_g, np.sqrt(np.diag(pcov_g))
-        self.chi_nu = chi2/dof
+        self.chi_nu = chi2_val/dof
         if plot:
             self.fits_plot = fits_plot
 
