@@ -6,10 +6,11 @@ import os
 from scipy.optimize import curve_fit
 import json
 from scipy.constants import h,c,k
+from numpyencoder import NumpyEncoder
 
 '''
 List of functions that I can just import throughout my FRP since I'll need them often.
-Last update: 15/03/2024
+Last update: 20/03/2024
 Tim van der Vuurst, Bsc (Leiden University)
 '''
 
@@ -168,7 +169,6 @@ def preprocess_clean_data(datapath):
 
     return data, ztf_name, no_i_mask, time_zeropoint
 
-
 class ZTF_forced_phot:
     def __init__(self,ztf_dir,ztf_name=None): 
         """Class: ZTF_forced_phot. Given a directory and optionally a name (if the name is not the end of the directory), perform forced photometry
@@ -243,7 +243,10 @@ class ZTF_forced_phot:
 
         self.clean_filtermasks = [(clean_data['filter'] == 'ZTF_g'), (clean_data['filter'] == 'ZTF_r'), (clean_data['filter'] == 'ZTF_i')]
 
-        chi2_results, peak_ind, t_0_guess, peak_guess = chi2_peak_finder(flux,err,clean_data['time'],time_zeropoint)
+        # chi2_results, peak_ind, t_0_guess, peak_guess = chi2_peak_finder(flux,err,clean_data['time'],time_zeropoint)
+        #cross correlation with a simple Gaussian to get a guess for the peak.
+        peak_ind,t_0_guess,peak_guess = cross_correlation(flux,clean_data['time'].values,time_zeropoint,full_output=False)
+
         time_mask_pure = (clean_data['time'] > (t_0_guess - 365)) & (clean_data['time'] < (t_0_guess+365*2)) #these are the times we will be fitting on
         time_mask = time_mask_pure * no_i_mask # also filter out ZTF_i measurements
 
@@ -294,7 +297,7 @@ class ZTF_forced_phot:
         self.guesses, self.boundings= guesses, boundings
         self.guesses_g, self.guesses_r = guesses_g, guesses_r
         self.boundings_g, self.boundings_r = boundings_g, boundings_r
-        self.chi2_results, self.peak_ind, self.t_0_guess, self.peak_guess = chi2_results, peak_ind, t_0_guess, peak_guess
+        self.peak_ind, self.t_0_guess, self.peak_guess = peak_ind, t_0_guess, peak_guess
         self.time_mask_pure = time_mask_pure
 
 
@@ -496,6 +499,14 @@ class ZTF_forced_phot:
                                             absolute_sigma=True)
             
 
+        #calculate the chi2/dof for the g and r data combined
+        dof = len(self.filters_fit) - (len(popt) + 2) #number of points in g and r - the amount of parameters (popt and the 2 baselines)
+        chi2 = chi2(self.flux_fit - baseline,np.sqrt(np.square(self.err_fit) + np.square(baseline_err)),
+                       self.gauss_exp_fit_no_baseline(self.time_fit,*popt))
+        
+        print(f'Found chi2/dof = {chi2/dof:.6f}')
+
+
         if plot:
             #array to smoothen the line in the figure
             moretimes = np.linspace(min(self.time_fit),max(self.time_fit),1000)
@@ -566,7 +577,9 @@ class ZTF_forced_phot:
         
             #Final parameters in the text
             paramstr += r'F$_{0,g} = $' + f'{F0_g:.2f} ± {F0_g_err:.3f}\n'
-            paramstr += r'F$_{0,r} = $' + f'{F0_r:.2f} ± {F0_r_err:.3f}'
+            paramstr += r'F$_{0,r} = $' + f'{F0_r:.2f} ± {F0_r_err:.3f}\n'
+            paramstr += r'$\chi ^2_{\nu}$ = ' + f'{chi2/dof:.3f}'
+
 
             axes[-1].set_xlabel(f"Time (mjd - 2458484.5)",fontsize=12)
 
@@ -577,12 +590,104 @@ class ZTF_forced_phot:
             fig.tight_layout()
             plt.show()
         
-        #So that parameters may be saved in the save_parameters function.
-        self.popt = popt
-        self.perr = np.sqrt(np.diag(pcov)) #you never need pcov
+
+
+        #So that parameters may be saved in the save_params function.
+        #Add the baselines to the parameters as well.
+        self.popt = np.concatenate([popt,[F0_g,F0_r]])
+        self.perr = np.concatenate([np.sqrt(np.diag(pcov)),[F0_g_err,F0_r_err]])
         self.popt_r,self.perr_r = popt_r,np.sqrt(np.diag(pcov_r))
         self.popt_g,self.perr_g = popt_g, np.sqrt(np.diag(pcov_g))
+        self.chi_nu = chi2/dof
         if plot:
             self.fits_plot = fits_plot
+
+
+    def save_params(self,savepath=None,save=True):
+        if self.no_gr_flag:
+            return
+        
+        names = ['log10(Fp)', 't_0', 'log10(sigma_rise)', 'log10(tau_dec)', 'log10(T)','F_0g','F_0r']
+        params_names = ['F_p', 't_0', 'sigma_rise','tau_dec', 'T','F_0g','F_0r','nu_0']
+        log_names = ['log10_'+params_names[i] for i,name in enumerate(names) if 'log10' in name]
+        units = ['uJy','mjd','days','days','K','uJy','uJy','Hz']
+        # filter_order = ['ZTF_g','ZTF_r']
+
+
+        params = [10**p if 'log10' in names[i] else p for i,p in enumerate(self.popt)]
+        param_errs = [np.log(10)*err*params[i] if 'log10' in names[i] else err for i,err in enumerate(self.perr)]
+
+        log_params = [p for i,p in enumerate(self.popt) if 'log10' in names[i]]
+        log_param_errs = [e for i,e in enumerate(self.perr) if 'log10' in names[i]]
+
+        params.append(np.float32(self.nu_0)) #since nu_0 doesn't have an error, add it only now. 
+        param_errs.append(np.float32(0))
+
+        params.extend(log_params)
+        param_errs.extend(log_param_errs)
+        # print(np.shape(log_params))
+
+        dict_keys = params_names
+        dict_keys.extend(log_names)
+        dict_keys.extend(['chi2_dof','units'])
+        ordered_params = [np.array([np.float64(params[i]),np.float64(param_errs[i])]) for i in range(len(params))]
+        ordered_params.extend([self.chi_nu,units])
+
+        param_dict = dict(zip(dict_keys,ordered_params))
+        # print(param_dict)
+
+        #Now doing the pretty much the same again but for the filter dependent parameters
+        names_g = ['log10(Fp)', 't_0', 'log10(sigma_rise)', 'log10(tau_dec)','F_0g']
+        params_names_g = ['F_p', 't_0', 'sigma_rise','tau_dec','F_0g']
+        log_names_g = ['log10_'+params_names_g[i] for i,name in enumerate(names_g) if 'log10' in name]
+
+        names_r = ['log10(Fp)', 't_0', 'log10(sigma_rise)', 'log10(tau_dec)','F_0r']
+        params_names_r = ['F_p', 't_0', 'sigma_rise','tau_dec','F_0r']
+        log_names_r = ['log10_'+params_names_r[i] for i,name in enumerate(names_r) if 'log10' in name]
+
+        units_filt = ['uJy','mjd','days','days','uJy']
+
+        params_g = [10**p if 'log10' in names_g[i] else p for i,p in enumerate(self.popt_g)]
+        param_errs_g = [np.log(10)*err*params_g[i] if 'log10' in names_g[i] else err for i,err in enumerate(self.perr_g)]
+        log_params_g = [p for i,p in enumerate(self.popt_g) if 'log10' in names_g[i]]
+        log_param_errs_g = [e for i,e in enumerate(self.perr_g) if 'log10' in names_g[i]]
+        params_g.extend(log_params_g), param_errs_g.extend(log_param_errs_g)
+
+        params_r = [10**p if 'log10' in names_r[i] else p for i,p in enumerate(self.popt_r)]
+        param_errs_r = [np.log(10)*err*params_r[i] if 'log10' in names_r[i] else err for i,err in enumerate(self.perr_r)]
+        log_params_r = [p for i,p in enumerate(self.popt_r) if 'log10' in names_r[i]]
+        log_param_errs_r = [e for i,e in enumerate(self.perr_r) if 'log10' in names_r[i]]
+        params_r.extend(log_params_r), param_errs_r.extend(log_param_errs_r)
+
+        dict_keys_g = params_names_g
+        dict_keys_g.extend(log_names_g)
+        dict_keys_g.extend(['units'])
+        ordered_params_g = [np.array([np.float64(params_g[i]),np.float64(param_errs_g[i])]) for i in range(len(params_g))]
+        ordered_params_g.append(units_filt)
+        param_dict_g = dict(zip(dict_keys_g,ordered_params_g))
+
+        dict_keys_r = params_names_r
+        dict_keys_r.extend(log_names_r)
+        dict_keys_r.extend(['units'])
+        ordered_params_r = [np.array([np.float64(params_r[i]),np.float64(param_errs_r[i])]) for i in range(len(params_r))]
+        ordered_params_r.append(units_filt)
+        param_dict_r = dict(zip(dict_keys_r,ordered_params_r))
+
+
+        param_dicts = [param_dict,param_dict_g,param_dict_r]
+        if save:
+            if savepath == None:
+                savepath = self.ztf_dir
+            
+            filename = self.ztf_name + '_parameters'
+            all_filenames = [filename,filename+'_g',filename+'_r']
+            for i,fn in enumerate(all_filenames):
+                with open(os.path.join(savepath,fn),'w') as file:
+                    json.dump(param_dicts[i],file,indent = 4,cls=NumpyEncoder)
+
+        return param_dicts
+
+
+        
 
 
