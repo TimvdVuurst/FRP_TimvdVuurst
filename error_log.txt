@@ -1,0 +1,782 @@
+ZTF17aaagpwv,`ydata` must not be empty!
+ZTF17aaaheis,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\17\\ZTF17aaaheis\\ZTF17aaaheis_parameters'
+ZTF17aaanxze,cannot do a non-empty take from an empty axes.
+ZTF17aaaqngw,`x0` is infeasible.
+ZTF17aaarzth,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\17\\ZTF17aaarzth\\ZTF17aaarzth_parameters'
+ZTF17aaaumzf,`ydata` must not be empty!
+ZTF17aabpjlu,cannot do a non-empty take from an empty axes.
+ZTF17aaagpwv,`ydata` must not be empty!
+ZTF17aaaheis,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\17\\ZTF17aaaheis\\ZTF17aaaheis_parameters'
+ZTF17aaanxze,cannot do a non-empty take from an empty axes.
+ZTF17aaaqngw,`x0` is infeasible.
+ZTF17aaarzth,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\17\\ZTF17aaarzth\\ZTF17aaarzth_parameters'
+ZTF17aaaumzf,`ydata` must not be empty!
+ZTF17aabpjlu,cannot do a non-empty take from an empty axes.
+ZTF18aaaapyn,cannot do a non-empty take from an empty axes.
+ZTF18aaabiok,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aaabiok\\ZTF18aaabiok_parameters'
+ZTF18aaahxhg,cannot do a non-empty take from an empty axes.
+ZTF18aaakist,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aabdiug,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aabljfm,`ydata` must not be empty!
+ZTF18aablnlt,cannot do a non-empty take from an empty axes.
+ZTF18aacaosx,cannot do a non-empty take from an empty axes.
+ZTF18aacjltc,cannot do a non-empty take from an empty axes.
+ZTF18aacmdcc,`x0` is infeasible.
+ZTF18aacnuju,cannot do a non-empty take from an empty axes.
+ZTF18aacttde,cannot do a non-empty take from an empty axes.
+ZTF18aacxtzx,`x0` is infeasible.
+ZTF18aadfqfk,`x0` is infeasible.
+ZTF18aaedeqk,cannot do a non-empty take from an empty axes.
+ZTF18aaedxcw,`ydata` must not be empty!
+ZTF18aaelphu,`x0` is infeasible.
+ZTF18aaemfta,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aaemfta\\ZTF18aaemfta_parameters'
+ZTF18aaemivw,`x0` is infeasible.
+ZTF18aafdhoa,`x0` is infeasible.
+ZTF18aafhzmb,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aagpswr,Each lower bound must be strictly less than each upper bound.
+ZTF18aagqmqv,cannot do a non-empty take from an empty axes.
+ZTF18aahbxie,`x0` is infeasible.
+ZTF18aahgakg,`x0` is infeasible.
+ZTF18aahiqfi,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aahiqfi\\ZTF18aahiqfi_parameters'
+ZTF18aahjafd,`x0` is infeasible.
+ZTF18aahmkac,cannot do a non-empty take from an empty axes.
+ZTF18aahrzrb,`x0` is infeasible.
+ZTF18aajbjwd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aajbjwd\\ZTF18aajbjwd_parameters'
+ZTF18aajhhxe,`x0` is infeasible.
+ZTF18aajqcue,`x0` is infeasible.
+ZTF18aajyqym,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aajyqym\\ZTF18aajyqym_parameters'
+ZTF18aajznsw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aajznsw\\ZTF18aajznsw_parameters'
+ZTF18aakaajs,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aakctzv,`x0` is infeasible.
+ZTF18aakdyss,`x0` is infeasible.
+ZTF18aakvpfp,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aalboes,`x0` is infeasible.
+ZTF18aalpkec,`x0` is infeasible.
+ZTF18aaltwbu,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aalusrd,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aamcwcc,cannot do a non-empty take from an empty axes.
+ZTF18aamjqeh,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aamlqqh,`x0` is infeasible.
+ZTF18aanweox,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aanweox\\ZTF18aanweox_parameters'
+ZTF18aanxggu,cannot do a non-empty take from an empty axes.
+ZTF18aanxnrz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aanxnrz\\ZTF18aanxnrz_clean_log.json'
+ZTF18aaovzlg,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aapzqup,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aapzqup\\ZTF18aapzqup_parameters'
+ZTF18aaqdlxt,`x0` is infeasible.
+ZTF18aaqehoc,`x0` is infeasible.
+ZTF18aarltmo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aarltmo\\ZTF18aarltmo_parameters'
+ZTF18aarnpwk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aarnpwk\\ZTF18aarnpwk_parameters'
+ZTF18aarpdcg,`ydata` must not be empty!
+ZTF18aarqrzt,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aasdikm,`ydata` must not be empty!
+ZTF18aasesgl,`x0` is infeasible.
+ZTF18aasxvsg,`x0` is infeasible.
+ZTF18aasxxmj,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aauefpg,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aauefpg\\ZTF18aauefpg_parameters'
+ZTF18aaugome,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18aaunyrk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aaunyrk\\ZTF18aaunyrk_parameters'
+ZTF18aavnvmp,`x0` is infeasible.
+ZTF18aavscmw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aavscmw\\ZTF18aavscmw_parameters'
+ZTF18aawduoq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aawduoq\\ZTF18aawduoq_parameters'
+ZTF18aawldfo,`ydata` must not be empty!
+ZTF18aawsaer,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aawsaer\\ZTF18aawsaer_parameters'
+ZTF18aawvzzw,`x0` is infeasible.
+ZTF18aawwbeb,`x0` is infeasible.
+ZTF18aawwekm,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aawwekm\\ZTF18aawwekm_parameters'
+ZTF18aawzykl,`ydata` must not be empty!
+ZTF18aaybnom,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aaybnom\\ZTF18aaybnom_clean_log.json'
+ZTF18aayhysf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aayhysf\\ZTF18aayhysf_parameters'
+ZTF18aaykmko,cannot do a non-empty take from an empty axes.
+ZTF18aaykmzg,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aaykmzg\\ZTF18aaykmzg_parameters'
+ZTF18aaymqrv,`x0` is infeasible.
+ZTF18aaymuou,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aaymuou\\ZTF18aaymuou_parameters'
+ZTF18aaymwzk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aaymwzk\\ZTF18aaymwzk_clean_log.json'
+ZTF18aazhuma,cannot do a non-empty take from an empty axes.
+ZTF18abamhju,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abamhju\\ZTF18abamhju_parameters'
+ZTF18abbbeak,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abbbeak\\ZTF18abbbeak_parameters'
+ZTF18abccmkn,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abccmkn\\ZTF18abccmkn_clean_log.json'
+ZTF18abcdzyc,`x0` is infeasible.
+ZTF18abcpmlx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abcpmlx\\ZTF18abcpmlx_clean_log.json'
+ZTF18abdieoz,cannot do a non-empty take from an empty axes.
+ZTF18abdrcoq,`ydata` must not be empty!
+ZTF18abdribr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abdribr\\ZTF18abdribr_parameters'
+ZTF18abeaipj,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abeaipj\\ZTF18abeaipj_parameters'
+ZTF18abefxia,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abefxia\\ZTF18abefxia_clean_log.json'
+ZTF18abfcvfd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abfcvfd\\ZTF18abfcvfd_parameters'
+ZTF18abffdpa,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abffdpa\\ZTF18abffdpa_parameters'
+ZTF18abfnanp,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abfxiha,cannot do a non-empty take from an empty axes.
+ZTF18abfzcrf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abfzcrf\\ZTF18abfzcrf_clean_log.json'
+ZTF18abgisyz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abgisyz\\ZTF18abgisyz_parameters'
+ZTF18abgrjlk,`ydata` must not be empty!
+ZTF18abhappd,`x0` is infeasible.
+ZTF18abjmlty,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abkijlr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abkijlr\\ZTF18abkijlr_parameters'
+ZTF18abkkcek,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abkkcek\\ZTF18abkkcek_clean_log.json'
+ZTF18ablsaka,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18ablsaka\\ZTF18ablsaka_parameters'
+ZTF18ablzvmp,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18ablzvmp\\ZTF18ablzvmp_parameters'
+ZTF18abmarwp,cannot do a non-empty take from an empty axes.
+ZTF18abmnutc,`ydata` must not be empty!
+ZTF18abmrhkl,Each lower bound must be strictly less than each upper bound.
+ZTF18abmsoco,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abmsoco\\ZTF18abmsoco_parameters'
+ZTF18abnrlpa,cannot do a non-empty take from an empty axes.
+ZTF18abnuncj,`x0` is infeasible.
+ZTF18abnusld,cannot do a non-empty take from an empty axes.
+ZTF18abnyghh,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abnyzyb,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abnzihg,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abnzihg\\ZTF18abnzihg_parameters'
+ZTF18aboehnn,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aboehnn\\ZTF18aboehnn_parameters'
+ZTF18aboeowl,`x0` is infeasible.
+ZTF18abostla,Each lower bound must be strictly less than each upper bound.
+ZTF18abpexox,cannot do a non-empty take from an empty axes.
+ZTF18abqjtsp,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abqjtsp\\ZTF18abqjtsp_parameters'
+ZTF18abqoxhy,cannot do a non-empty take from an empty axes.
+ZTF18abqznlw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abqznlw\\ZTF18abqznlw_clean_log.json'
+ZTF18abrwswl,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abrwswl\\ZTF18abrwswl_parameters'
+ZTF18abrzbnb,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18absbqlg,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18absbqlg\\ZTF18absbqlg_parameters'
+ZTF18absbsts,`ydata` must not be empty!
+ZTF18abscffw,cannot do a non-empty take from an empty axes.
+ZTF18abslwen,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abslwen\\ZTF18abslwen_parameters'
+ZTF18absqwmc,cannot do a non-empty take from an empty axes.
+ZTF18abtmqxr,cannot do a non-empty take from an empty axes.
+ZTF18abtmwfj,`x0` is infeasible.
+ZTF18abtomal,cannot do a non-empty take from an empty axes.
+ZTF18abtozcr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abtozcr\\ZTF18abtozcr_clean_log.json'
+ZTF18abtphwe,cannot do a non-empty take from an empty axes.
+ZTF18abtqidt,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abtqidt\\ZTF18abtqidt_clean_log.json'
+ZTF18abtulec,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abuamgo,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abucnqk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abucnqk\\ZTF18abucnqk_parameters'
+ZTF18abuehto,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abuurjp,cannot do a non-empty take from an empty axes.
+ZTF18abuxvfk,`x0` is infeasible.
+ZTF18abvgjul,`x0` is infeasible.
+ZTF18abvhpiv,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abvldmo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abvldmo\\ZTF18abvldmo_clean_log.json'
+ZTF18abvmsaj,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abvrsky,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18abvvuga,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abvvuga\\ZTF18abvvuga_clean_log.json'
+ZTF18abwsfdy,`x0` is infeasible.
+ZTF18abxelyl,cannot do a non-empty take from an empty axes.
+ZTF18abxyutn,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abxyutn\\ZTF18abxyutn_parameters'
+ZTF18abxyxom,`x0` is infeasible.
+ZTF18abytatc,`ydata` must not be empty!
+ZTF18abzaolo,cannot do a non-empty take from an empty axes.
+ZTF18abzwhdw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18abzwhdw\\ZTF18abzwhdw_parameters'
+ZTF18acafzjn,`x0` is infeasible.
+ZTF18acajmwv,`ydata` must not be empty!
+ZTF18acakfsn,cannot do a non-empty take from an empty axes.
+ZTF18acaobrj,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acaobrj\\ZTF18acaobrj_clean_log.json'
+ZTF18acatqtd,`ydata` must not be empty!
+ZTF18acayrgz,Weights sum to zero, can't be normalized
+ZTF18acbuead,cannot do a non-empty take from an empty axes.
+ZTF18acbvtza,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acbvtza\\ZTF18acbvtza_clean_log.json'
+ZTF18acbxzfi,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acbxzfi\\ZTF18acbxzfi_parameters'
+ZTF18accdzeo,cannot do a non-empty take from an empty axes.
+ZTF18accjecm,cannot do a non-empty take from an empty axes.
+ZTF18accktcs,`x0` is infeasible.
+ZTF18acclaad,`x0` is infeasible.
+ZTF18acclefa,`x0` is infeasible.
+ZTF18accnkcw,`ydata` must not be empty!
+ZTF18accputw,`ydata` must not be empty!
+ZTF18accsejm,cannot do a non-empty take from an empty axes.
+ZTF18accvtmh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18accvtmh\\ZTF18accvtmh_parameters'
+ZTF18acdatjf,cannot do a non-empty take from an empty axes.
+ZTF18acdwavx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acdwavx\\ZTF18acdwavx_parameters'
+ZTF18aceiiat,cannot do a non-empty take from an empty axes.
+ZTF18aceikwn,`ydata` must not be empty!
+ZTF18acejssk,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18acelomn,cannot do a non-empty take from an empty axes.
+ZTF18acemavj,cannot do a non-empty take from an empty axes.
+ZTF18aceprxa,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aceprxa\\ZTF18aceprxa_parameters'
+ZTF18aceqovl,`x0` is infeasible.
+ZTF18aceyqpm,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aceyqpm\\ZTF18aceyqpm_parameters'
+ZTF18acfkghu,`ydata` must not be empty!
+ZTF18acfqtql,`ydata` must not be empty!
+ZTF18acgzcft,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acgzcft\\ZTF18acgzcft_parameters'
+ZTF18achcibt,`ydata` must not be empty!
+ZTF18achdmxr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18achdmxr\\ZTF18achdmxr_parameters'
+ZTF18acmfwcr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acmfwcr\\ZTF18acmfwcr_parameters'
+ZTF18acnbpmd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acnbpmd\\ZTF18acnbpmd_parameters'
+ZTF18acnvbnd,`ydata` must not be empty!
+ZTF18acofwra,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18acplben,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acplben\\ZTF18acplben_parameters'
+ZTF18acpstmo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acpstmo\\ZTF18acpstmo_clean_log.json'
+ZTF18acptvok,cannot do a non-empty take from an empty axes.
+ZTF18acrunad,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18acslpji,cannot do a non-empty take from an empty axes.
+ZTF18acswirx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acswirx\\ZTF18acswirx_parameters'
+ZTF18acsxsbf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acsxsbf\\ZTF18acsxsbf_parameters'
+ZTF18acszbbf,Each lower bound must be strictly less than each upper bound.
+ZTF18acszdid,cannot do a non-empty take from an empty axes.
+ZTF18acszgqj,cannot do a non-empty take from an empty axes.
+ZTF18actzyzs,cannot do a non-empty take from an empty axes.
+ZTF18acuejcm,`x0` is infeasible.
+ZTF18acujeah,`ydata` must not be empty!
+ZTF18aculscd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aculscd\\ZTF18aculscd_parameters'
+ZTF18acvboqv,`ydata` must not be empty!
+ZTF18acvgufb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acvgufb\\ZTF18acvgufb_parameters'
+ZTF18acvqkxx,cannot do a non-empty take from an empty axes.
+ZTF18acvtrrq,Each lower bound must be strictly less than each upper bound.
+ZTF18acvvtko,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18acvvupu,`ydata` must not be empty!
+ZTF18acvwhmw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acvwhmw\\ZTF18acvwhmw_parameters'
+ZTF18acvwiqm,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18acvwnpj,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18acwxdcl,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acwxdcl\\ZTF18acwxdcl_clean_log.json'
+ZTF18acwxeqf,`x0` is infeasible.
+ZTF18acxgmur,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18acxgmur\\ZTF18acxgmur_parameters'
+ZTF18aczbkmo,cannot do a non-empty take from an empty axes.
+ZTF18aczvwdh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aczvwdh\\ZTF18aczvwdh_parameters'
+ZTF18aczxsij,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18aczxsij\\ZTF18aczxsij_clean_log.json'
+ZTF18adalgtv,cannot do a non-empty take from an empty axes.
+ZTF18adaryet,cannot do a non-empty take from an empty axes.
+ZTF18adasklh,cannot do a non-empty take from an empty axes.
+ZTF18adbgswg,cannot do a non-empty take from an empty axes.
+ZTF18adcaosw,`ydata` must not be empty!
+ZTF18adcbmje,`ydata` must not be empty!
+ZTF18adfbqvq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18adfbqvq\\ZTF18adfbqvq_parameters'
+ZTF18adilrcf,cannot do a non-empty take from an empty axes.
+ZTF18adjlalc,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18adjqujt,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18adjqujt\\ZTF18adjqujt_parameters'
+ZTF18adkqcwy,cannot do a non-empty take from an empty axes.
+ZTF18admqjys,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF18adobyue,`x0` is infeasible.
+ZTF18adojxsv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\18\\ZTF18adojxsv\\ZTF18adojxsv_parameters'
+ZTF18adolkpr,cannot do a non-empty take from an empty axes.
+ZTF18adplzdn,cannot do a non-empty take from an empty axes.
+ZTF19aaaeyfm,Each lower bound must be strictly less than each upper bound.
+ZTF19aaafhxl,cannot do a non-empty take from an empty axes.
+ZTF19aaafvzy,cannot do a non-empty take from an empty axes.
+ZTF19aaagwdv,cannot do a non-empty take from an empty axes.
+ZTF19aaahszt,`x0` is infeasible.
+ZTF19aaaornf,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aaapfwe,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaapfwe\\ZTF19aaapfwe_parameters'
+ZTF19aaapipk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaapipk\\ZTF19aaapipk_parameters'
+ZTF19aaapkuj,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aaapnrt,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaapnrt\\ZTF19aaapnrt_parameters'
+ZTF19aaapujo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaapujo\\ZTF19aaapujo_parameters'
+ZTF19aabgcfa,`x0` is infeasible.
+ZTF19aachwqz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aachwqz\\ZTF19aachwqz_parameters'
+ZTF19aacqcrq,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aaczxhp,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aadfcun,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aadflun,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aadflun\\ZTF19aadflun_clean_log.json'
+ZTF19aaeflcg,`ydata` must not be empty!
+ZTF19aaenfez,cannot do a non-empty take from an empty axes.
+ZTF19aaeunwg,`ydata` must not be empty!
+ZTF19aafmrrw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aafmrrw\\ZTF19aafmrrw_parameters'
+ZTF19aafnend,cannot do a non-empty take from an empty axes.
+ZTF19aafpvty,`ydata` must not be empty!
+ZTF19aahsikb,`ydata` must not be empty!
+ZTF19aahwaqu,`ydata` must not be empty!
+ZTF19aaikxbr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaikxbr\\ZTF19aaikxbr_parameters'
+ZTF19aailtrj,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aailtrj\\ZTF19aailtrj_parameters'
+ZTF19aailwji,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aailwji\\ZTF19aailwji_parameters'
+ZTF19aaiqmwc,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaiqmwc\\ZTF19aaiqmwc_parameters'
+ZTF19aajwhse,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aajwhse\\ZTF19aajwhse_parameters'
+ZTF19aakpjwl,Each lower bound must be strictly less than each upper bound.
+ZTF19aakxxhl,cannot do a non-empty take from an empty axes.
+ZTF19aakykhn,cannot do a non-empty take from an empty axes.
+ZTF19aalbxcm,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aalcvkm,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aalcvkm\\ZTF19aalcvkm_clean_log.json'
+ZTF19aalggpp,`ydata` must not be empty!
+ZTF19aalvzir,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aalvzir\\ZTF19aalvzir_clean_log.json'
+ZTF19aalzlnf,cannot do a non-empty take from an empty axes.
+ZTF19aalzvxf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aalzvxf\\ZTF19aalzvxf_parameters'
+ZTF19aamhfdt,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aamhfdt\\ZTF19aamhfdt_clean_log.json'
+ZTF19aamtdws,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aamtdws\\ZTF19aamtdws_parameters'
+ZTF19aamtili,`x0` is infeasible.
+ZTF19aamwqzm,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aamwqzm\\ZTF19aamwqzm_clean_log.json'
+ZTF19aanmgst,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aanmgst\\ZTF19aanmgst_clean_log.json'
+ZTF19aannwzl,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aanxoio,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aanxoio\\ZTF19aanxoio_clean_log.json'
+ZTF19aanyuzb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aanyuzb\\ZTF19aanyuzb_parameters'
+ZTF19aaobvkb,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aaofokt,`ydata` must not be empty!
+ZTF19aaohxwd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaohxwd\\ZTF19aaohxwd_parameters'
+ZTF19aaozmrs,cannot do a non-empty take from an empty axes.
+ZTF19aaoznax,cannot do a non-empty take from an empty axes.
+ZTF19aapoclv,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aaprcke,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaprcke\\ZTF19aaprcke_parameters'
+ZTF19aaprwuv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaprwuv\\ZTF19aaprwuv_parameters'
+ZTF19aapsxka,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aapsxka\\ZTF19aapsxka_clean_log.json'
+ZTF19aapubll,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aapubll\\ZTF19aapubll_parameters'
+ZTF19aapvrer,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aapvrer\\ZTF19aapvrer_clean_log.json'
+ZTF19aapwfzk,cannot do a non-empty take from an empty axes.
+ZTF19aapzbmx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aapzbmx\\ZTF19aapzbmx_parameters'
+ZTF19aaqalas,`ydata` must not be empty!
+ZTF19aaqekew,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaqekew\\ZTF19aaqekew_parameters'
+ZTF19aaqwvdy,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaqwvdy\\ZTF19aaqwvdy_parameters'
+ZTF19aarfreu,cannot do a non-empty take from an empty axes.
+ZTF19aarkwfv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aarkwfv\\ZTF19aarkwfv_parameters'
+ZTF19aarmsms,`x0` is infeasible.
+ZTF19aarpymc,`ydata` must not be empty!
+ZTF19aarxyde,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aarxyde\\ZTF19aarxyde_parameters'
+ZTF19aasbxum,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aasljha,cannot do a non-empty take from an empty axes.
+ZTF19aasnaqi,cannot do a non-empty take from an empty axes.
+ZTF19aastary,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aastary\\ZTF19aastary_parameters'
+ZTF19aatffoc,`ydata` must not be empty!
+ZTF19aatfkkj,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aatfkkj\\ZTF19aatfkkj_parameters'
+ZTF19aatgpuq,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aathlde,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aathlde\\ZTF19aathlde_parameters'
+ZTF19aatllxr,cannot do a non-empty take from an empty axes.
+ZTF19aatlxtt,cannot do a non-empty take from an empty axes.
+ZTF19aatmggn,cannot do a non-empty take from an empty axes.
+ZTF19aatmsfd,`ydata` must not be empty!
+ZTF19aatqpuc,cannot do a non-empty take from an empty axes.
+ZTF19aatvnzq,`x0` is infeasible.
+ZTF19aautjaz,`ydata` must not be empty!
+ZTF19aauwsev,cannot do a non-empty take from an empty axes.
+ZTF19aavjkwh,cannot do a non-empty take from an empty axes.
+ZTF19aavndxo,cannot do a non-empty take from an empty axes.
+ZTF19aavofph,Each lower bound must be strictly less than each upper bound.
+ZTF19aavomkb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aavomkb\\ZTF19aavomkb_clean_log.json'
+ZTF19aavpqor,`ydata` must not be empty!
+ZTF19aavqbpo,cannot do a non-empty take from an empty axes.
+ZTF19aavtefr,cannot do a non-empty take from an empty axes.
+ZTF19aawfcyr,`ydata` must not be empty!
+ZTF19aawhjnk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aawhjnk\\ZTF19aawhjnk_clean_log.json'
+ZTF19aawnwan,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aawnwan\\ZTF19aawnwan_parameters'
+ZTF19aawscqd,`ydata` must not be empty!
+ZTF19aawupxb,`x0` is infeasible.
+ZTF19aaxcpbc,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aaydqxl,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19aayrjpk,`x0` is infeasible.
+ZTF19aaytamb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aaytamb\\ZTF19aaytamb_parameters'
+ZTF19aazuden,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aazuden\\ZTF19aazuden_clean_log.json'
+ZTF19aazxgjj,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aazxgjj\\ZTF19aazxgjj_parameters'
+ZTF19abahlpz,`x0` is infeasible.
+ZTF19abaiahw,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19abajgdq,cannot do a non-empty take from an empty axes.
+ZTF19abapecf,'ZTF_g'
+ZTF19abasxmh,cannot do a non-empty take from an empty axes.
+ZTF19abatgyh,cannot do a non-empty take from an empty axes.
+ZTF19abbynti,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abbynti\\ZTF19abbynti_parameters'
+ZTF19abbzzmx,cannot do a non-empty take from an empty axes.
+ZTF19abcemxd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abcemxd\\ZTF19abcemxd_parameters'
+ZTF19abcfcrs,cannot do a non-empty take from an empty axes.
+ZTF19abcfguz,cannot do a non-empty take from an empty axes.
+ZTF19abcucqz,Weights sum to zero, can't be normalized
+ZTF19abdcbxs,`x0` is infeasible.
+ZTF19abdemjb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abdemjb\\ZTF19abdemjb_parameters'
+ZTF19abdjzeb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abdjzeb\\ZTF19abdjzeb_parameters'
+ZTF19abdqfcv,`ydata` must not be empty!
+ZTF19abdyggx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abdyggx\\ZTF19abdyggx_parameters'
+ZTF19abdzffe,cannot do a non-empty take from an empty axes.
+ZTF19abegzry,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abegzry\\ZTF19abegzry_parameters'
+ZTF19abehove,`ydata` must not be empty!
+ZTF19abezwej,`ydata` must not be empty!
+ZTF19abfrmrn,cannot do a non-empty take from an empty axes.
+ZTF19abfwplu,cannot do a non-empty take from an empty axes.
+ZTF19abfyuel,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abfyuel\\ZTF19abfyuel_parameters'
+ZTF19abgcdey,cannot do a non-empty take from an empty axes.
+ZTF19abgfnnb,cannot do a non-empty take from an empty axes.
+ZTF19abgoeef,cannot do a non-empty take from an empty axes.
+ZTF19abhdlxp,cannot do a non-empty take from an empty axes.
+ZTF19abiaeop,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19abidivp,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abidivp\\ZTF19abidivp_parameters'
+ZTF19abifoky,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abifoky\\ZTF19abifoky_parameters'
+ZTF19abisyvx,cannot do a non-empty take from an empty axes.
+ZTF19abjargn,cannot do a non-empty take from an empty axes.
+ZTF19abjarnh,`x0` is infeasible.
+ZTF19abjarri,`x0` is infeasible.
+ZTF19abjghep,cannot do a non-empty take from an empty axes.
+ZTF19ablehkw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19ablehkw\\ZTF19ablehkw_clean_log.json'
+ZTF19ableplf,cannot do a non-empty take from an empty axes.
+ZTF19abmtrny,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abmtrny\\ZTF19abmtrny_parameters'
+ZTF19abnauvy,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abnauvy\\ZTF19abnauvy_parameters'
+ZTF19abnibdm,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abnibdm\\ZTF19abnibdm_clean_log.json'
+ZTF19abocgjq,`ydata` must not be empty!
+ZTF19aboueif,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aboueif\\ZTF19aboueif_parameters'
+ZTF19abpfvth,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abpfvth\\ZTF19abpfvth_parameters'
+ZTF19abpguth,cannot do a non-empty take from an empty axes.
+ZTF19abptdsr,`x0` is infeasible.
+ZTF19abptljw,cannot do a non-empty take from an empty axes.
+ZTF19abqhwvz,`ydata` must not be empty!
+ZTF19abqlggo,cannot do a non-empty take from an empty axes.
+ZTF19abqsmns,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abqsmns\\ZTF19abqsmns_parameters'
+ZTF19abtruyh,`x0` is infeasible.
+ZTF19abtseer,Weights sum to zero, can't be normalized
+ZTF19abtsqxw,`ydata` must not be empty!
+ZTF19abttslq,`ydata` must not be empty!
+ZTF19abubixv,cannot do a non-empty take from an empty axes.
+ZTF19abucctk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abucctk\\ZTF19abucctk_parameters'
+ZTF19abucqax,cannot do a non-empty take from an empty axes.
+ZTF19abuddvj,cannot do a non-empty take from an empty axes.
+ZTF19abuzqfl,cannot do a non-empty take from an empty axes.
+ZTF19abuzyrs,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abuzyrs\\ZTF19abuzyrs_clean_log.json'
+ZTF19abvgxtq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abvgxtq\\ZTF19abvgxtq_clean_log.json'
+ZTF19abxjgal,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abxjgal\\ZTF19abxjgal_clean_log.json'
+ZTF19abxvkky,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abxvkky\\ZTF19abxvkky_parameters'
+ZTF19abxzlya,cannot do a non-empty take from an empty axes.
+ZTF19abymuda,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abymuda\\ZTF19abymuda_parameters'
+ZTF19abymwtd,cannot do a non-empty take from an empty axes.
+ZTF19abywtke,cannot do a non-empty take from an empty axes.
+ZTF19abywyyz,cannot do a non-empty take from an empty axes.
+ZTF19abzhubs,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abzhubs\\ZTF19abzhubs_parameters'
+ZTF19abzmpku,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abzmpku\\ZTF19abzmpku_parameters'
+ZTF19abzrcnk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abzrcnk\\ZTF19abzrcnk_parameters'
+ZTF19abzsogy,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19abzsogy\\ZTF19abzsogy_clean_log.json'
+ZTF19abzsvqs,Weights sum to zero, can't be normalized
+ZTF19acagplz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acagplz\\ZTF19acagplz_parameters'
+ZTF19acahfye,cannot do a non-empty take from an empty axes.
+ZTF19acblzyz,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19acbmzyw,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19acbupog,`ydata` must not be empty!
+ZTF19acbvlry,cannot do a non-empty take from an empty axes.
+ZTF19acbvoki,`ydata` must not be empty!
+ZTF19accblxh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19accblxh\\ZTF19accblxh_parameters'
+ZTF19accbsnt,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19accbsnt\\ZTF19accbsnt_clean_log.json'
+ZTF19accczao,`x0` is infeasible.
+ZTF19accxxbp,cannot do a non-empty take from an empty axes.
+ZTF19aceftqa,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19aceftqa\\ZTF19aceftqa_clean_log.json'
+ZTF19acelpam,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acelpam\\ZTF19acelpam_parameters'
+ZTF19acelpem,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acelpem\\ZTF19acelpem_parameters'
+ZTF19acetiai,`ydata` must not be empty!
+ZTF19acgdxki,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acgdxki\\ZTF19acgdxki_clean_log.json'
+ZTF19achjqkh,cannot do a non-empty take from an empty axes.
+ZTF19acldkdx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acldkdx\\ZTF19acldkdx_parameters'
+ZTF19acljlgt,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acljlgt\\ZTF19acljlgt_clean_log.json'
+ZTF19acmdsvg,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acmdsvg\\ZTF19acmdsvg_parameters'
+ZTF19acnskyy,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acnskyy\\ZTF19acnskyy_parameters'
+ZTF19acobfoo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acobfoo\\ZTF19acobfoo_parameters'
+ZTF19acuyodh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19acuyodh\\ZTF19acuyodh_parameters'
+ZTF19acwrpij,`ydata` must not be empty!
+ZTF19acxyuza,Weights sum to zero, can't be normalized
+ZTF19acyibvr,`ydata` must not be empty!
+ZTF19acyizud,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19acyqdkf,cannot do a non-empty take from an empty axes.
+ZTF19adapwaz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19adapwaz\\ZTF19adapwaz_parameters'
+ZTF19adcbzqs,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19adcbzqs\\ZTF19adcbzqs_parameters'
+ZTF19adcuglh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19adcuglh\\ZTF19adcuglh_parameters'
+ZTF19adcyctu,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19addwrbn,Weights sum to zero, can't be normalized
+ZTF19adfbdxc,`ydata` must not be empty!
+ZTF19adfrwur,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF19adhaeaf,`ydata` must not be empty!
+ZTF19adhjihb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19adhjihb\\ZTF19adhjihb_clean_log.json'
+ZTF19adjdnuj,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19adjdnuj\\ZTF19adjdnuj_clean_log.json'
+ZTF19adlxdte,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\19\\ZTF19adlxdte\\ZTF19adlxdte_parameters'
+ZTF20aaaytfn,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20aaceyho,cannot do a non-empty take from an empty axes.
+ZTF20aadccda,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aadccda\\ZTF20aadccda_parameters'
+ZTF20aadcqdc,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aadcqdc\\ZTF20aadcqdc_parameters'
+ZTF20aadujps,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aadujps\\ZTF20aadujps_clean_log.json'
+ZTF20aadvqrl,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20aadxrvb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aadxrvb\\ZTF20aadxrvb_clean_log.json'
+ZTF20aaeaprb,`ydata` must not be empty!
+ZTF20aaeokox,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aaeokox\\ZTF20aaeokox_parameters'
+ZTF20aaervis,cannot do a non-empty take from an empty axes.
+ZTF20aaexkkh,`ydata` must not be empty!
+ZTF20aaezfjd,cannot do a non-empty take from an empty axes.
+ZTF20aafrltf,`ydata` must not be empty!
+ZTF20aafwuse,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aafwuse\\ZTF20aafwuse_clean_log.json'
+ZTF20aahgexl,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aahgexl\\ZTF20aahgexl_parameters'
+ZTF20aahhari,cannot do a non-empty take from an empty axes.
+ZTF20aahhzxr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aahhzxr\\ZTF20aahhzxr_parameters'
+ZTF20aahviou,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aahviou\\ZTF20aahviou_parameters'
+ZTF20aajteho,`x0` is infeasible.
+ZTF20aallieh,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20aaloskn,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aaloskn\\ZTF20aaloskn_parameters'
+ZTF20aampsyp,Weights sum to zero, can't be normalized
+ZTF20aanafsu,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aanafsu\\ZTF20aanafsu_clean_log.json'
+ZTF20aanmqzy,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aanmqzy\\ZTF20aanmqzy_parameters'
+ZTF20aanolcn,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aanolcn\\ZTF20aanolcn_parameters'
+ZTF20aaocxao,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aaocxao\\ZTF20aaocxao_parameters'
+ZTF20aaonezv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aaonezv\\ZTF20aaonezv_clean_log.json'
+ZTF20aaorllg,`x0` is infeasible.
+ZTF20aapjmqh,`ydata` must not be empty!
+ZTF20aapyzop,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aapyzop\\ZTF20aapyzop_parameters'
+ZTF20aaqkdmw,`ydata` must not be empty!
+ZTF20aarwqyh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aarwqyh\\ZTF20aarwqyh_parameters'
+ZTF20aasjjiq,`ydata` must not be empty!
+ZTF20aasqbcx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aasqbcx\\ZTF20aasqbcx_parameters'
+ZTF20aastgns,`ydata` must not be empty!
+ZTF20aatvzdh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aatvzdh\\ZTF20aatvzdh_parameters'
+ZTF20aaullwp,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aaullwp\\ZTF20aaullwp_parameters'
+ZTF20aauonhf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aauonhf\\ZTF20aauonhf_parameters'
+ZTF20aauuumd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aauuumd\\ZTF20aauuumd_parameters'
+ZTF20aauynvr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aauynvr\\ZTF20aauynvr_clean_log.json'
+ZTF20aavbrxd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aavbrxd\\ZTF20aavbrxd_parameters'
+ZTF20aavfnuo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aavfnuo\\ZTF20aavfnuo_parameters'
+ZTF20aavsjuv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aavsjuv\\ZTF20aavsjuv_parameters'
+ZTF20aavxbhb,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20aawbfzk,`x0` is infeasible.
+ZTF20aawitjz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aawitjz\\ZTF20aawitjz_parameters'
+ZTF20aawopdf,`ydata` must not be empty!
+ZTF20aaxlxpf,cannot do a non-empty take from an empty axes.
+ZTF20aayoddi,Each lower bound must be strictly less than each upper bound.
+ZTF20aazlyty,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20aazvxww,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20abagues,`ydata` must not be empty!
+ZTF20abakqfb,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20abbeydm,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abbeydm\\ZTF20abbeydm_parameters'
+ZTF20abbzaki,`ydata` must not be empty!
+ZTF20abcgkff,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abcgkff\\ZTF20abcgkff_parameters'
+ZTF20abchksq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abchksq\\ZTF20abchksq_parameters'
+ZTF20abekqhc,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20abfcsio,`x0` is infeasible.
+ZTF20abimwcc,cannot do a non-empty take from an empty axes.
+ZTF20abjnqcj,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abjnqcj\\ZTF20abjnqcj_parameters'
+ZTF20abjpxei,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abjpxei\\ZTF20abjpxei_parameters'
+ZTF20abjwohb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abjwohb\\ZTF20abjwohb_parameters'
+ZTF20abjxdwf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abjxdwf\\ZTF20abjxdwf_clean_log.json'
+ZTF20ableldm,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20ablxusb,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20abnurxu,Each lower bound must be strictly less than each upper bound.
+ZTF20abnvbzq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abnvbzq\\ZTF20abnvbzq_parameters'
+ZTF20abotyav,`x0` is infeasible.
+ZTF20abpdsfd,`x0` is infeasible.
+ZTF20abpiufl,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abpiufl\\ZTF20abpiufl_parameters'
+ZTF20abpmqch,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abpmqch\\ZTF20abpmqch_parameters'
+ZTF20abpruei,`ydata` must not be empty!
+ZTF20abptrwq,`ydata` must not be empty!
+ZTF20abpywmd,`ydata` must not be empty!
+ZTF20abrcomo,cannot do a non-empty take from an empty axes.
+ZTF20abrdhdi,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abrdhdi\\ZTF20abrdhdi_clean_log.json'
+ZTF20abrikdq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abrikdq\\ZTF20abrikdq_parameters'
+ZTF20abrnwfc,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abrnwfc\\ZTF20abrnwfc_parameters'
+ZTF20abswgbn,Each lower bound must be strictly less than each upper bound.
+ZTF20abxdfpl,cannot do a non-empty take from an empty axes.
+ZTF20abxvovs,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abxvovs\\ZTF20abxvovs_clean_log.json'
+ZTF20abykuxb,Each lower bound must be strictly less than each upper bound.
+ZTF20abynbhh,`ydata` must not be empty!
+ZTF20abypolq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abypolq\\ZTF20abypolq_parameters'
+ZTF20abytfon,`ydata` must not be empty!
+ZTF20abzxeri,`x0` is infeasible.
+ZTF20abzzelz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20abzzelz\\ZTF20abzzelz_parameters'
+ZTF20acaaqkw,`ydata` must not be empty!
+ZTF20acdouyb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acdouyb\\ZTF20acdouyb_parameters'
+ZTF20aceekuk,`ydata` must not be empty!
+ZTF20acgsfpw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acgsfpw\\ZTF20acgsfpw_parameters'
+ZTF20acingrc,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acingrc\\ZTF20acingrc_parameters'
+ZTF20acirhrj,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20aciugty,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aciugty\\ZTF20aciugty_clean_log.json'
+ZTF20acjessb,Each lower bound must be strictly less than each upper bound.
+ZTF20acjitng,cannot do a non-empty take from an empty axes.
+ZTF20acjivjb,cannot do a non-empty take from an empty axes.
+ZTF20acjjluw,cannot do a non-empty take from an empty axes.
+ZTF20acjkymq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acjkymq\\ZTF20acjkymq_clean_log.json'
+ZTF20aclgsam,`ydata` must not be empty!
+ZTF20acmfynw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acmfynw\\ZTF20acmfynw_clean_log.json'
+ZTF20acmgjes,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20acmkdxl,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acmkdxl\\ZTF20acmkdxl_parameters'
+ZTF20acnwbuo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acnwbuo\\ZTF20acnwbuo_parameters'
+ZTF20acnzcmp,Each lower bound must be strictly less than each upper bound.
+ZTF20acnzjgx,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20acoisgs,Each lower bound must be strictly less than each upper bound.
+ZTF20acoxwfm,`ydata` must not be empty!
+ZTF20acpbnzr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acpbnzr\\ZTF20acpbnzr_parameters'
+ZTF20acpptqk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acpptqk\\ZTF20acpptqk_parameters'
+ZTF20acpqfso,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acpqfso\\ZTF20acpqfso_parameters'
+ZTF20acqifbn,`ydata` must not be empty!
+ZTF20acqikeh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acqikeh\\ZTF20acqikeh_parameters'
+ZTF20acqnssi,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acqnssi\\ZTF20acqnssi_parameters'
+ZTF20acqqief,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acqqief\\ZTF20acqqief_clean_log.json'
+ZTF20acrcesj,cannot do a non-empty take from an empty axes.
+ZTF20acrlwat,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acrlwat\\ZTF20acrlwat_parameters'
+ZTF20acrprmc,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF20acsacog,`ydata` must not be empty!
+ZTF20acuiktl,`x0` is infeasible.
+ZTF20acvamwo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acvamwo\\ZTF20acvamwo_parameters'
+ZTF20acwyicu,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acwyicu\\ZTF20acwyicu_parameters'
+ZTF20acxsppf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acxsppf\\ZTF20acxsppf_parameters'
+ZTF20acxvbos,`x0` is infeasible.
+ZTF20acxycxb,cannot do a non-empty take from an empty axes.
+ZTF20acymddn,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20acymddn\\ZTF20acymddn_parameters'
+ZTF20aczacgi,`ydata` must not be empty!
+ZTF20aczgify,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\20\\ZTF20aczgify\\ZTF20aczgify_parameters'
+ZTF21aaabzde,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaabzde\\ZTF21aaabzde_parameters'
+ZTF21aaaytyv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaaytyv\\ZTF21aaaytyv_parameters'
+ZTF21aacdtvw,`ydata` must not be empty!
+ZTF21aacfght,Each lower bound must be strictly less than each upper bound.
+ZTF21aachqzr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aachqzr\\ZTF21aachqzr_parameters'
+ZTF21aacindc,Each lower bound must be strictly less than each upper bound.
+ZTF21aadahyi,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aadahyi\\ZTF21aadahyi_clean_log.json'
+ZTF21aadrmkd,cannot do a non-empty take from an empty axes.
+ZTF21aadrwze,`ydata` must not be empty!
+ZTF21aaduidn,`ydata` must not be empty!
+ZTF21aaeoxfd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaeoxfd\\ZTF21aaeoxfd_parameters'
+ZTF21aaeozvx,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF21aafdhab,`x0` is infeasible.
+ZTF21aafofgv,`ydata` must not be empty!
+ZTF21aaglryo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaglryo\\ZTF21aaglryo_parameters'
+ZTF21aagoivs,`ydata` must not be empty!
+ZTF21aagtquu,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aagtquu\\ZTF21aagtquu_clean_log.json'
+ZTF21aahaksd,`x0` is infeasible.
+ZTF21aahisrc,`ydata` must not be empty!
+ZTF21aahmuon,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aahmuon\\ZTF21aahmuon_parameters'
+ZTF21aaixgrr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaixgrr\\ZTF21aaixgrr_parameters'
+ZTF21aaiysse,cannot do a non-empty take from an empty axes.
+ZTF21aajvyzp,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aajvyzp\\ZTF21aajvyzp_parameters'
+ZTF21aakfqwq,`ydata` must not be empty!
+ZTF21aakmfnv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aakmfnv\\ZTF21aakmfnv_parameters'
+ZTF21aalnusf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aalnusf\\ZTF21aalnusf_parameters'
+ZTF21aalwsci,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aalwsci\\ZTF21aalwsci_clean_log.json'
+ZTF21aamkste,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aamkste\\ZTF21aamkste_parameters'
+ZTF21aamtttp,`x0` is infeasible.
+ZTF21aangcwp,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aangcwp\\ZTF21aangcwp_parameters'
+ZTF21aantukd,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aantukd\\ZTF21aantukd_parameters'
+ZTF21aaobwfx,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF21aaoghxv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaoghxv\\ZTF21aaoghxv_parameters'
+ZTF21aaongyy,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaongyy\\ZTF21aaongyy_parameters'
+ZTF21aaoqegd,`ydata` must not be empty!
+ZTF21aaovhxe,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaovhxe\\ZTF21aaovhxe_parameters'
+ZTF21aaowefe,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaowefe\\ZTF21aaowefe_parameters'
+ZTF21aapkuur,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aapkuur\\ZTF21aapkuur_parameters'
+ZTF21aapnydy,Each lower bound must be strictly less than each upper bound.
+ZTF21aaptmrn,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaptmrn\\ZTF21aaptmrn_parameters'
+ZTF21aaptoln,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaptoln\\ZTF21aaptoln_parameters'
+ZTF21aaqgbxi,`x0` is infeasible.
+ZTF21aatllhx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aatllhx\\ZTF21aatllhx_parameters'
+ZTF21aaubbvx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aaubbvx\\ZTF21aaubbvx_clean_log.json'
+ZTF21aawiwwr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aawiwwr\\ZTF21aawiwwr_parameters'
+ZTF21abaxlxk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abaxlxk\\ZTF21abaxlxk_clean_log.json'
+ZTF21abccejf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abccejf\\ZTF21abccejf_parameters'
+ZTF21abcdrfy,Weights sum to zero, can't be normalized
+ZTF21abdibot,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abdibot\\ZTF21abdibot_clean_log.json'
+ZTF21abepcji,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abepcji\\ZTF21abepcji_parameters'
+ZTF21abezizj,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF21abgygva,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abgygva\\ZTF21abgygva_parameters'
+ZTF21abhqqwq,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abhqqwq\\ZTF21abhqqwq_parameters'
+ZTF21abhrllw,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abhrllw\\ZTF21abhrllw_parameters'
+ZTF21abhsbeu,`ydata` must not be empty!
+ZTF21abhtzmc,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abhtzmc\\ZTF21abhtzmc_parameters'
+ZTF21abhuepa,`ydata` must not be empty!
+ZTF21abihucc,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abihucc\\ZTF21abihucc_parameters'
+ZTF21abiplqz,cannot do a non-empty take from an empty axes.
+ZTF21abjmfgt,cannot do a non-empty take from an empty axes.
+ZTF21abjsost,`ydata` must not be empty!
+ZTF21abqmndb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abqmndb\\ZTF21abqmndb_parameters'
+ZTF21abrpgwn,`ydata` must not be empty!
+ZTF21abspqom,`ydata` must not be empty!
+ZTF21abtcgdo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abtcgdo\\ZTF21abtcgdo_parameters'
+ZTF21abuurof,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abuurof\\ZTF21abuurof_parameters'
+ZTF21abuzuih,`ydata` must not be empty!
+ZTF21abwyelp,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abwyelp\\ZTF21abwyelp_parameters'
+ZTF21abxqkab,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abxqkab\\ZTF21abxqkab_parameters'
+ZTF21abyguom,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abyguom\\ZTF21abyguom_parameters'
+ZTF21abysloy,`ydata` must not be empty!
+ZTF21abyvcmx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abyvcmx\\ZTF21abyvcmx_clean_log.json'
+ZTF21abyvjif,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abyvjif\\ZTF21abyvjif_parameters'
+ZTF21abzawib,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21abzawib\\ZTF21abzawib_parameters'
+ZTF21acadags,`ydata` must not be empty!
+ZTF21acadrzr,`ydata` must not be empty!
+ZTF21acbqjsz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21acbqjsz\\ZTF21acbqjsz_parameters'
+ZTF21accalyq,`ydata` must not be empty!
+ZTF21acdvwpk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21acdvwpk\\ZTF21acdvwpk_parameters'
+ZTF21acekigs,Weights sum to zero, can't be normalized
+ZTF21aceyjog,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aceyjog\\ZTF21aceyjog_parameters'
+ZTF21aceztra,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aceztra\\ZTF21aceztra_parameters'
+ZTF21achafqr,`ydata` must not be empty!
+ZTF21acizoit,cannot do a non-empty take from an empty axes.
+ZTF21acjbguz,`ydata` must not be empty!
+ZTF21acjrdey,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21acjrdey\\ZTF21acjrdey_clean_log.json'
+ZTF21acjzdhm,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21acjzdhm\\ZTF21acjzdhm_clean_log.json'
+ZTF21ackvztp,`ydata` must not be empty!
+ZTF21aclgzew,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21aclgzew\\ZTF21aclgzew_parameters'
+ZTF21acljejh,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF21acmcdrk,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\21\\ZTF21acmcdrk\\ZTF21acmcdrk_parameters'
+ZTF21acmixed,Each lower bound must be strictly less than each upper bound.
+ZTF21acnwvbd,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF21acpcdas,`ydata` must not be empty!
+ZTF21acpifpb,cannot do a non-empty take from an empty axes.
+ZTF21acpzlho,Weights sum to zero, can't be normalized
+ZTF22aaaekqh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aaaekqh\\ZTF22aaaekqh_parameters'
+ZTF22aaaihgr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aaaihgr\\ZTF22aaaihgr_parameters'
+ZTF22aaajail,`x0` is infeasible.
+ZTF22aaajaqv,cannot do a non-empty take from an empty axes.
+ZTF22aaalbag,`ydata` must not be empty!
+ZTF22aabffjr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aabffjr\\ZTF22aabffjr_parameters'
+ZTF22aabgbug,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aabgbug\\ZTF22aabgbug_parameters'
+ZTF22aabinqe,`ydata` must not be empty!
+ZTF22aacgcsn,`ydata` must not be empty!
+ZTF22aactuab,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aactuab\\ZTF22aactuab_parameters'
+ZTF22aadejlb,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aadejlb\\ZTF22aadejlb_parameters'
+ZTF22aadelrv,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aadelrv\\ZTF22aadelrv_parameters'
+ZTF22aaduudf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aaduudf\\ZTF22aaduudf_parameters'
+ZTF22aafvilz,`ydata` must not be empty!
+ZTF22aagflax,cannot do a non-empty take from an empty axes.
+ZTF22aagiopz,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aagiopz\\ZTF22aagiopz_parameters'
+ZTF22aagvebd,`ydata` must not be empty!
+ZTF22aahgnxz,`ydata` must not be empty!
+ZTF22aahhzng,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aahhzng\\ZTF22aahhzng_parameters'
+ZTF22aahxhyi,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aahxhyi\\ZTF22aahxhyi_parameters'
+ZTF22aaibbwf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aaibbwf\\ZTF22aaibbwf_parameters'
+ZTF22aaiirbm,cannot do a non-empty take from an empty axes.
+ZTF22aaipujm,Each lower bound must be strictly less than each upper bound.
+ZTF22aaizxqg,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aaizxqg\\ZTF22aaizxqg_parameters'
+ZTF22aajmmpr,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aajmmpr\\ZTF22aajmmpr_parameters'
+ZTF22aajtojx,Each lower bound must be strictly less than each upper bound.
+ZTF22aakglwt,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aakglwt\\ZTF22aakglwt_parameters'
+ZTF22aalaixb,`ydata` must not be empty!
+ZTF22aapklqp,`x0` is infeasible.
+ZTF22aarswdk,`x0` is infeasible.
+ZTF22aartgte,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aartgte\\ZTF22aartgte_clean_log.json'
+ZTF22aashlck,`ydata` must not be empty!
+ZTF22aasinsf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aasinsf\\ZTF22aasinsf_parameters'
+ZTF22aauhyzf,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aauhyzf\\ZTF22aauhyzf_parameters'
+ZTF22aawenpo,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22aawenpo\\ZTF22aawenpo_parameters'
+ZTF22aaxsuif,cannot do a non-empty take from an empty axes.
+ZTF22aaywmfk,`x0` is infeasible.
+ZTF22aazgiho,Each lower bound must be strictly less than each upper bound.
+ZTF22abalyxs,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abalyxs\\ZTF22abalyxs_parameters'
+ZTF22abbowkh,`ydata` must not be empty!
+ZTF22abcfcve,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abcfcve\\ZTF22abcfcve_parameters'
+ZTF22abdaokh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abdaokh\\ZTF22abdaokh_parameters'
+ZTF22abdatth,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abdatth\\ZTF22abdatth_parameters'
+ZTF22abdvslh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abdvslh\\ZTF22abdvslh_parameters'
+ZTF22abebxpb,`ydata` must not be empty!
+ZTF22abfaqvh,`ydata` must not be empty!
+ZTF22abfviup,`ydata` must not be empty!
+ZTF22abfwayq,`ydata` must not be empty!
+ZTF22abfzrdr,cannot do a non-empty take from an empty axes.
+ZTF22abfzstc,cannot do a non-empty take from an empty axes.
+ZTF22abfztcy,cannot do a non-empty take from an empty axes.
+ZTF22abfzzmh,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF22abgadoy,`x0` is infeasible.
+ZTF22abgarwt,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abgarwt\\ZTF22abgarwt_parameters'
+ZTF22abgcigh,`ydata` must not be empty!
+ZTF22abghptl,cannot do a non-empty take from an empty axes.
+ZTF22abgnfjh,cannot do a non-empty take from an empty axes.
+ZTF22abgnfnh,Weights sum to zero, can't be normalized
+ZTF22abgnfxq,`ydata` must not be empty!
+ZTF22abgngku,cannot do a non-empty take from an empty axes.
+ZTF22abgpdsu,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abgpdsu\\ZTF22abgpdsu_parameters'
+ZTF22abgyvgx,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abgyvgx\\ZTF22abgyvgx_parameters'
+ZTF22abiflxl,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abiflxl\\ZTF22abiflxl_parameters'
+ZTF22abjagaj,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abjagaj\\ZTF22abjagaj_parameters'
+ZTF22abjxyau,cannot do a non-empty take from an empty axes.
+ZTF22ablxgox,cannot do a non-empty take from an empty axes.
+ZTF22ablxkbr,cannot do a non-empty take from an empty axes.
+ZTF22abmdnzx,cannot do a non-empty take from an empty axes.
+ZTF22abmqnuo,cannot do a non-empty take from an empty axes.
+ZTF22abmqwrc,Weights sum to zero, can't be normalized
+ZTF22abmqxyl,`ydata` must not be empty!
+ZTF22abmrbkl,cannot do a non-empty take from an empty axes.
+ZTF22abmreyz,cannot do a non-empty take from an empty axes.
+ZTF22abmrfth,Weights sum to zero, can't be normalized
+ZTF22abmvmyh,[Errno 2] No such file or directory: 'C:\\Users\\timvd\\Documents\\Uni 2023-2024\\First Research Project\\Data\\22\\ZTF22abmvmyh\\ZTF22abmvmyh_parameters'
+ZTF22abmzdzr,cannot do a non-empty take from an empty axes.
+ZTF22abnlttt,cannot do a non-empty take from an empty axes.
+ZTF22abnoyit,cannot do a non-empty take from an empty axes.
+ZTF22abnumxe,cannot do a non-empty take from an empty axes.
+ZTF22abnynhc,Each lower bound must be strictly less than each upper bound.
+ZTF22abnzmfc,cannot do a non-empty take from an empty axes.
+ZTF22aboeivg,cannot do a non-empty take from an empty axes.
+ZTF22abogmec,cannot do a non-empty take from an empty axes.
+ZTF22abpozfp,Weights sum to zero, can't be normalized
+ZTF22abpwdmm,Optimal parameters not found: The maximum number of function evaluations is exceeded.
+ZTF22abqhnns,`x0` is infeasible.
+ZTF22abqtdyh,`ydata` must not be empty!
+ZTF22abtmeol,`ydata` must not be empty!
+ZTF22abuhwxu,`ydata` must not be empty!
+ZTF22abvgdmj,Weights sum to zero, can't be normalized
+ZTF22abwqmwv,cannot do a non-empty take from an empty axes.
+ZTF22abymzuk,`ydata` must not be empty!
+ZTF22acaibqo,cannot do a non-empty take from an empty axes.
+ZTF23aaagncz,Each lower bound must be strictly less than each upper bound.
+ZTF23aaauylp,`ydata` must not be empty!

@@ -114,7 +114,7 @@ def cross_correlation(flux,time,time_zeropoint=2458484.5,full_output=True,interp
     if latest_peak > np.max(time):
         latest_peak = np.max(time)
 
-    timesteps_for_gauss = np.arange(np.min(time[1:]),latest_peak,step=5) #key array that deduces the times which will become candidates
+    timesteps_for_gauss = np.arange(np.min(time[1:]),latest_peak,step=2) #key array that deduces the times which will become candidates
     cross_corr = np.zeros_like(timesteps_for_gauss)
 
     #interpolate the data at the timesteps we use so that the arrays have the same shape.
@@ -137,8 +137,9 @@ def cross_correlation(flux,time,time_zeropoint=2458484.5,full_output=True,interp
 
     #finding the flux of the closest corresponding time in the actual data as the corresponding flux to the peak guess
     best_time_insteps = timesteps_for_gauss[peak]
-    best_fit_arg = np.argmin(np.abs(time - best_time_insteps))
-    best_flux = flux[best_fit_arg]
+    # best_fit_arg = np.argmin(np.abs(time - best_time_insteps))
+    # best_flux = flux[best_fit_arg]
+    best_flux = interp_data_arr[peak]
 
     if full_output:
         return cross_corr, peak, timesteps_for_gauss, best_flux
@@ -360,6 +361,8 @@ class ZTF_forced_phot:
         self.boundings_g, self.boundings_r = boundings_g, boundings_r
         self.peak_ind, self.t_0_guess, self.peak_guess = peak_ind, t_0_guess, peak_guess
         self.time_mask_pure = time_mask_pure
+
+
 
 
     def plot_clean_unclean_data(self,clean_ylim=True):
@@ -677,10 +680,10 @@ class ZTF_forced_phot:
         if self.no_gr_flag:
             return
         
-        names = ['log10(Fp)', 't_0', 'log10(sigma_rise)', 'log10(tau_dec)', 'log10(T)','F_0g','F_0r']
-        params_names = ['F_p', 't_0', 'sigma_rise','tau_dec', 'T','F_0g','F_0r','nu_0']
+        names = ['log10(Fp)', 't_0', 'log10(sigma_rise)', 'log10(tau_dec)', 'log10(T)','F_0g','F_0r'] 
+        params_names = ['F_p', 't_0', 'sigma_rise','tau_dec', 'T','F_0g','F_0r']
         log_names = ['log10_'+params_names[i] for i,name in enumerate(names) if 'log10' in name]
-        units = ['uJy','mjd','days','days','K','uJy','uJy','Hz']
+        # units = ['uJy','mjd','days','days','K','uJy','uJy','Hz']
         # filter_order = ['ZTF_g','ZTF_r']
 
 
@@ -690,18 +693,24 @@ class ZTF_forced_phot:
         log_params = [p for i,p in enumerate(self.popt) if 'log10' in names[i]]
         log_param_errs = [e for i,e in enumerate(self.perr) if 'log10' in names[i]]
 
-        params.append(np.float32(self.nu_0)) #since nu_0 doesn't have an error, add it only now. 
-        param_errs.append(np.float32(0))
+        # params.append(np.float32(self.nu_0)) #since nu_0 doesn't have an error, add it only now. 
+        # param_errs.append(np.float32(0))
 
         params.extend(log_params)
         param_errs.extend(log_param_errs)
-        # print(np.shape(log_params))
+
 
         dict_keys = params_names
         dict_keys.extend(log_names)
-        dict_keys.extend(['chi2_dof','units'])
+        dict_keys.extend(['nu_0'])
+        dict_keys.extend(['t0_cc','Fp_cc'])
+        dict_keys.extend(['chi2_dof'])
         ordered_params = [np.array([np.float64(params[i]),np.float64(param_errs[i])]) for i in range(len(params))]
-        ordered_params.extend([self.chi_nu,units])
+        ordered_params.extend([self.nu_0])
+        #add the guess from the cross correlation as well
+        cross_corr_vals = [self.t_0_guess,self.peak_guess]
+        ordered_params.extend(cross_corr_vals)
+        ordered_params.extend([self.chi_nu])
 
         param_dict = dict(zip(dict_keys,ordered_params))
         # print(param_dict)
@@ -715,7 +724,7 @@ class ZTF_forced_phot:
         params_names_r = ['F_p', 't_0', 'sigma_rise','tau_dec','F_0r']
         log_names_r = ['log10_'+params_names_r[i] for i,name in enumerate(names_r) if 'log10' in name]
 
-        units_filt = ['uJy','mjd','days','days','uJy']
+        # units_filt = ['uJy','mjd','days','days','uJy']
 
         params_g = [10**p if 'log10' in names_g[i] else p for i,p in enumerate(self.popt_g)]
         param_errs_g = [np.log(10)*err*params_g[i] if 'log10' in names_g[i] else err for i,err in enumerate(self.perr_g)]
@@ -731,16 +740,16 @@ class ZTF_forced_phot:
 
         dict_keys_g = params_names_g
         dict_keys_g.extend(log_names_g)
-        dict_keys_g.extend(['units'])
+        # dict_keys_g.extend(['units'])
         ordered_params_g = [np.array([np.float64(params_g[i]),np.float64(param_errs_g[i])]) for i in range(len(params_g))]
-        ordered_params_g.append(units_filt)
+        # ordered_params_g.append(units_filt)
         param_dict_g = dict(zip(dict_keys_g,ordered_params_g))
 
         dict_keys_r = params_names_r
         dict_keys_r.extend(log_names_r)
-        dict_keys_r.extend(['units'])
+        # dict_keys_r.extend(['units'])
         ordered_params_r = [np.array([np.float64(params_r[i]),np.float64(param_errs_r[i])]) for i in range(len(params_r))]
-        ordered_params_r.append(units_filt)
+        # ordered_params_r.append(units_filt)
         param_dict_r = dict(zip(dict_keys_r,ordered_params_r))
 
 
