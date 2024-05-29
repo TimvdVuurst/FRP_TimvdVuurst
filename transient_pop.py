@@ -143,9 +143,9 @@ def mbh_histogram(density=False,save = True,catalogue=catalogue):
         plt.show()
     else:
         if density:
-            savename = 'BH_histogram_density.png'
+            savename = os.path.join(dpath,'BH_histogram_density.png')
         else:
-            savename = 'BH_histogram_count.png'
+            savename = os.path.join(dpath,'BH_histogram_counts.png')
         plt.savefig(savename)
         plt.close()
 
