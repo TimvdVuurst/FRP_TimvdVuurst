@@ -96,9 +96,6 @@ def param_scatterplot(data,param1,param2,colorby = None,colorby_label='',colorba
     plt.show()
 
 
-# if __name__ == '__main__':
-#     param_scatterplot(catalogue,'sigma_rise','tau_dec',colorby=catalogue['dmg'].values,colorby_label=r'$\Delta m_g$',mask=catalogue['in_selection'].values.astype(bool))
-
 
 def scatter_against_mbh(param: str,catalogue = catalogue) -> None:
     mbh_indx = np.nonzero(catalogue['MBH'].values)
@@ -118,7 +115,7 @@ def scatter_against_mbh(param: str,catalogue = catalogue) -> None:
 # scatter_against_mbh('log10_sigma_rise',catalogue) 
 
 
-def mbh_histogram(density=False,save = True,catalogue=catalogue):
+def mbh_histogram(density=False,save = True,catalogue=catalogue) -> None:
     mbh_indx = np.nonzero(catalogue['MBH'].values)
     catalogue = catalogue.iloc[mbh_indx] #filter out only the ones with known mbh data
     classes = catalogue['classification'].unique()
@@ -149,5 +146,45 @@ def mbh_histogram(density=False,save = True,catalogue=catalogue):
         plt.savefig(savename)
         plt.close()
 
-mbh_histogram(False)
-mbh_histogram(True)
+# mbh_histogram(False)
+# mbh_histogram(True)
+
+class_info = ascii.read(r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Data\class_info.dat')
+#sort the class_info by ztf_id
+perm_indx = class_info['ztf_id'].argsort()
+class_info = class_info[perm_indx]
+#set empty values to Unknown instead of 0
+class_info['classification'] = class_info['classification'].filled('Unknown')
+class_info['classification'][0] = 'Unknown'
+class_info = pd.DataFrame(np.array(class_info))
+
+def mbh_cumul_hist(density=True,save = True,catal=class_info) -> None:
+    mbh_indx = np.nonzero(catal['MBH'].values)
+    cat = catal.copy() #keep the original
+    cat = cat.iloc[mbh_indx] #filter out only the ones with known mbh data
+    agnmask = (cat['classification'].values == 'AGN') 
+    fullcat = fullcatalogue.copy()
+    fullcat = fullcat.iloc[np.nonzero(fullcatalogue['MBH'].values)]
+    strongmask = (fullcat['classification'].values == 'AGN') * fullcat['in_selection'].values
+
+    mbh_strong = fullcat['MBH'][strongmask].values
+    mbh_other = cat['MBH'][agnmask].values
+
+    n_bins = np.histogram_bin_edges(cat['MBH'].values,bins=30)
+
+    fig,ax = plt.subplots()
+    n, bins, patches = ax.hist(mbh_strong, n_bins, density=density, histtype='step',
+                           cumulative=True, label='Extreme AGN flare')
+    ax.hist(mbh_other, n_bins, density=density, histtype='step',
+                           cumulative=True, label='Normal AGN flare')
+
+    ax.set_xlabel(r'$\log_{10}\left(\text{M}_{\text{BH}}/M_{\odot}\right)$')
+    if density: ylabel = "CDF"
+    else: ylabel = 'Cumulative sum'
+    ax.set_ylabel(ylabel)
+    ax.grid(True)
+    ax.legend()
+    plt.show()
+
+mbh_cumul_hist(catal=class_info)
+mbh_cumul_hist(False,catal=class_info)

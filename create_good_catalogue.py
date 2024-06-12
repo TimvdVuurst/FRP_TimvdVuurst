@@ -63,7 +63,7 @@ def temp_correct(params: pd.DataFrame = param_df) -> tuple:
 #function to select region of interesting flares
 def pop_cuts(params: pd.DataFrame = param_df) -> tuple[np.ndarray]:
     dmag_mask = np.logical_or((params['dmg'].values <= 1),params['dmr'].values <= 1) #create the delta m selection based on if either r or g has dmag < 1
-    sigma_rise_mask = params['sigma_rise'].values <= 150
+    sigma_rise_mask = params['sigma_rise'].values <= 100 #changed from 150
     tau_dec_mask = params['tau_dec'].values <= 500
     
     fullmask = dmag_mask * sigma_rise_mask * tau_dec_mask
@@ -88,22 +88,27 @@ if __name__ == '__main__':
     class_info = class_info[perm_indx]
     #set empty values to Unknown instead of 0
     class_info['classification'] = class_info['classification'].filled('Unknown')
-    class_info['classification'][0] = 'Unknown'
+    class_info['classification'][0] = 'Unknown' #test instance of classification, also unknown
 
     #sort the catalogue by ZTF_ID as well
     catalogue.sort_values(by='ZTF_ID',inplace=True,ignore_index=True)
     #filter the ZTFs that aren't in the classification file
+    #add the mask as a separate column
     ztfmask = np.isin(np.array(catalogue['ZTF_ID']),np.array(class_info['ztf_id']))
-    catalogue = catalogue[ztfmask]
+    catalogue['classified'] = ztfmask
 
-    #merge catalogue and class info into one big catalogue
+    #do the same but for adding to the class file
+    ztfmask2 = np.isin(np.array(class_info['ztf_id']),np.array(catalogue['ZTF_ID']))
+
+    #classification as a dataframe 
     class_df = pd.DataFrame(np.array(class_info))
-    catalogue = pd.concat([catalogue,class_df.iloc[:,3:]],axis=1) #:,3: because we don't want dupe ztf_id and don't care about RA,DEC
-    catalogue.reset_index(inplace=True,drop=True)
+    class_df['fit_exists'] = ztfmask2
+    # catalogue = pd.concat([catalogue,class_df.iloc[:,3:]],axis=1) #:,3: because we don't want dupe ztf_id and don't care about RA,DEC
+    # catalogue.reset_index(inplace=True,drop=True)
 
-    #filter the bad fits out
+    #filter the bad fits out and add as a column
     qcuts = quality_cuts(catalogue)
-    catalogue = catalogue[qcuts]
+    catalogue['fit_quality_good'] = qcuts
 
     #generate masks for the population selection and strong flare selection
     areamask, strong_flare_mask = pop_cuts(catalogue)
@@ -112,6 +117,7 @@ if __name__ == '__main__':
     catalogue['strong'] = strong_flare_mask
     catalogue['in_selection'] = areamask
 
-    #write catalogue to txt file
+    #write catalogue and class info to txt file
+    #catalogue will have 4 columns corresponding to masks
     catalogue.to_csv(os.path.join(dpath,'transient_catalogue.txt'),index=False)
-    
+    class_df.to_csv(os.path.join(dpath,'transient_classinfo.txt'),index=False)
