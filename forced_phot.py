@@ -176,7 +176,7 @@ def show_cross_correlation(ztf_name,datapath=None,path=False):
     ax1.scatter(timesteps_for_gauss_r,cross_corr_r,c='red',s=5)
     ax1.legend()
     ax2.set_ylabel("Flux")
-    ax2.set_xlabel("Time (mjd)")
+    ax2.set_xlabel("Time (jd - 2458484.5)")
     ax2.scatter(err_time[green_mask],err_flux[green_mask],s=5,c='green')
     ax2.scatter(err_time[red_mask],err_flux[red_mask],s=5,c='red')
     ax2.scatter(timesteps_for_gauss[np.argmax(cross_corr)],best_flux,marker='x',c='blue',s=50,label='Combined peak',zorder=10)
@@ -186,8 +186,6 @@ def show_cross_correlation(ztf_name,datapath=None,path=False):
     plt.show()
 
 
-
-##NEEDS UPDATING
 def preprocess_clean_data(datapath):
     """Preprocess a cleaned json file given its path. The full clean data will be read in. A mask that can filter out all
        ZTF_i measurements is created. Flux measurements and its errors are converted to uJy and the DataFrame is appended to only retain this
@@ -365,7 +363,7 @@ class ZTF_forced_phot:
 
 
 
-    def plot_clean_unclean_data(self,clean_ylim=True):
+    def plot_clean_unclean_data(self,save=True,clean_ylim=True,title=None):
         if self.no_gr_flag:
             return
 
@@ -382,7 +380,10 @@ class ZTF_forced_phot:
 
         num_rows = np.sum([ 1 if np.sum(fmask) > 0 else 0 for fmask in raw_filtersmasks])
         fig,axes = plt.subplots(nrows=num_rows,sharex=True,figsize=(8,8))
-        plt.suptitle(self.ztf_name,fontsize=14)
+        if title == None:
+            plt.suptitle(self.ztf_name,fontsize=14)
+        else:
+            plt.suptitle(title,fontsize=14)
         axes[0].xaxis.set_tick_params(which='both', labelbottom=True)
         axes[1].xaxis.set_tick_params(which='both', labelbottom=True)
 
@@ -390,7 +391,7 @@ class ZTF_forced_phot:
         labels = []
 
         for i,ax in enumerate(axes):
-            ax.set_title(names[i])
+            # ax.set_title(names[i])
             ax.errorbar(raw_time[raw_filtersmasks[i]],raw_flux[raw_filtersmasks[i]],raw_err[raw_filtersmasks[i]],fmt=',',alpha=0.5,c='gray',label=rawlabels[i],capsize=2)
             if i == 2:
                 if self.no_i_data:
@@ -411,10 +412,18 @@ class ZTF_forced_phot:
                     ax.set_ylim(1.25*np.min(clean_flux[self.clean_filtermasks[i]]),1.25*np.max(clean_flux[self.clean_filtermasks[i]]))
         
         
-        plt.xlabel(f'Time [mjd] w.r.t. JD {self.time_zeropoint}',fontsize=12)
+        # plt.xlabel(f'Time [mjd] w.r.t. JD {self.time_zeropoint}',fontsize=12)
+        plt.xlabel(f'Time [jd - 2458484.5]',fontsize=12)
         fig.tight_layout()
         fig.legend(lines,labels,bbox_to_anchor=[1.2,0.6],fontsize=12)
-        plt.show()
+        if save:
+            # plt.savefig(os.path.join(r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Plots',self.ztf_name+'_rawplot.png'),
+                        # bbox_inches='tight',dpi=600)
+            plt.savefig(os.path.join(r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\Plots',self.ztf_name+'_rawplot.pdf'),
+                        bbox_inches='tight')
+            plt.close()
+        else:
+            plt.show()
     
     def BB(self,nu,T):
         #Blackbody spectrum for a certain frequency given in Hz, not an array of values
@@ -485,7 +494,7 @@ class ZTF_forced_phot:
         return function #* self.BB_ratio(T,v1,v0)
 
 
-    def fit(self,plot=True,fit_i=True,savepath=None):
+    def fit(self,plot=True,fit_i=True,savepath=None,title=None):
         #If this is an instance with no viable g or r data, return immediately to prevent errors.
         if self.no_gr_flag:
             return
@@ -650,17 +659,20 @@ class ZTF_forced_phot:
             paramstr += r'$\chi ^2_{\nu}$ = ' + f'{chi2val/dof:.3f}'
 
 
-            axes[-1].set_xlabel(f"Time (mjd - 2458484.5)",fontsize=12)
+            axes[-1].set_xlabel(f"Time [jd - 2458484.5]",fontsize=12)
 
             plt.text(0.835,0.125,paramstr,fontsize=10,backgroundcolor='lightgray',zorder=-1,transform=plt.gcf().transFigure)
-
-            plt.suptitle(self.ztf_name,fontsize=14)
+            if title == None:
+                plt.suptitle(self.ztf_name,fontsize=14)
+            else:
+                plt.suptitle(title,fontsize=14)
             fig.legend(lines,labels,bbox_to_anchor=[1.055,0.6],fontsize=12)
             fig.tight_layout()
             if savepath is None:
                 plt.show()
             else:
-                plt.savefig(os.path.join(savepath,self.ztf_name+'_fit.png'),dpi=100,bbox_inches='tight')
+                # plt.savefig(os.path.join(savepath,self.ztf_name+'_fit.png'),dpi=300,bbox_inches='tight')
+                plt.savefig(os.path.join(savepath,self.ztf_name+'_fit.pdf'),bbox_inches='tight')
                 plt.close()
         
 

@@ -1,6 +1,6 @@
 '''
 List of cleaning functions that I can just import throughout my FRP since I'll need them often.
-Last update: 18/12/2023
+Last update: 14/07/2024
 Tim van der Vuurst, Bsc (Leiden University)
 '''
 
@@ -16,7 +16,7 @@ import json
 from numpyencoder import NumpyEncoder #by Hunter M. Allen (https://pypi.org/project/numpyencoder/)
 
 
-#From Sjoert, slightly modified
+#From Sjoerts github, slightly modified
 """Define the quality cuts."""
 def q_cuts(ZTF, softcuts=True,output=False):
     '''
@@ -29,16 +29,13 @@ def q_cuts(ZTF, softcuts=True,output=False):
     app_flux_ratio = ZTF['forcediffimfluxap'] / ZTF['forcediffimflux']
     app_psf_diff = (ZTF['forcediffimfluxap'] - ZTF['forcediffimflux']) #/ np.abs(ZTF['forcediffimfluxap'])
 
-
-    #final three masks added by Tim from section 6.1 of "A New Forced Photometry Service for the Zwicky Transient Facility" 
     iok =   (ZTF['procstatus'] != '56') * \
             (ZTF['scisigpix'] < 20) * \
             (ZTF['sciinpseeing'] < 4.0) * \
             (ZTF['zpmaginpscirms'] < 0.05)  * \
             (ZTF['infobitssci'] < 33554432) * \
             (ZTF['scisigpix'] <= 25) * \
-            (ZTF['sciinpseeing'] <= 4) * \
-            (ZTF['procstatus'] == 0) #this one added by Tim because error code should be 0 for an epoch, else there will probably still be a faulty epoch in there.
+            (ZTF['procstatus'] == 0)  #added by Tim
                 
           
     if softcuts==False: 
