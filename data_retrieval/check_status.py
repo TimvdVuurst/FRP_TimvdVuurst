@@ -7,11 +7,11 @@ wr = False
 write = input("Do you want to write the commands to the txt file? y/n ")
 if write == 'y':
     wr = True
-    wget = open(r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\wget.txt','w')
+    wget = open(r'C:\Users\timvd\Documents\Uni 2023-2024\First Research Project\wget.txt','w') #change path to relevant path for your data storage
 
 # Script name: check_status.py
-
-settings = {'email': 'vdvuurst@strw.leidenuniv.nl','userpass': 'lvvd367', 'option': 'All recent jobs', 'action': 'Query Database'}
+#change email and password to your account - removed due to public github access and sensitivity therefrom
+settings = {'email': 'blabla@strw.leidenuniv.nl','userpass': 'YOURPASSWORD', 'option': 'All recent jobs', 'action': 'Query Database'}
 
 r = requests.get('https://ztfweb.ipac.caltech.edu/cgi-bin/' +\
 'getBatchForcedPhotometryRequests.cgi',
